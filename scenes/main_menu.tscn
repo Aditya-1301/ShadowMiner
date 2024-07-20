@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://betdgvlp3b5ip"]
 
 [ext_resource type="Script" path="res://start_text.gd" id="1_fsvt5"]
-[ext_resource type="Script" path="res://quit_text.gd" id="2_okden"]
+[ext_resource type="Script" path="res://scripts/quit_text.gd" id="2_okden"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
