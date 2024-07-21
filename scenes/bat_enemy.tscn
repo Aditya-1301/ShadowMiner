@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://c0o0sn4wtauet"]
+
+[ext_resource type="Script" path="res://scripts/BatEnemy.gd" id="1_cgf6d"]
+[ext_resource type="Texture2D" uid="uid://c3dxfsfynxobl" path="res://assets/Enemies/Bat/Crow.png" id="2_h5gcq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqv3m"]
+atlas = ExtResource("2_h5gcq")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3mrx"]
+atlas = ExtResource("2_h5gcq")
+region = Rect2(144, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsgnk"]
+atlas = ExtResource("2_h5gcq")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q3d4"]
+atlas = ExtResource("2_h5gcq")
+region = Rect2(48, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muxhi"]
+atlas = ExtResource("2_h5gcq")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjnlc"]
+atlas = ExtResource("2_h5gcq")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52k2f"]
+atlas = ExtResource("2_h5gcq")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ioil"]
+atlas = ExtResource("2_h5gcq")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ysnd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqv3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3mrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsgnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3q3d4")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muxhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjnlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52k2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ioil")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wq8q2"]
+radius = 63.1269
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6i0u7"]
+radius = 16.0
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_fn5cw"]
+
+[node name="BatEnemy" type="CharacterBody2D"]
+script = ExtResource("1_cgf6d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -1)
+sprite_frames = SubResource("SpriteFrames_7ysnd")
+animation = &"idle"
+frame_progress = 0.914646
+flip_h = true
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_wq8q2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6i0u7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMP3_fn5cw")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
