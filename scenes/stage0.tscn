@@ -17,4 +17,5 @@ position = Vector2(16, 403)
 shape = SubResource("WorldBoundaryShape2D_1v4ht")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(575, 325)
+position = Vector2(291, 372)
+zoom = Vector2(2, 2)
