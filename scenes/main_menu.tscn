@@ -13,7 +13,6 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 80
 script = ExtResource("1_4pj2y")
-next_scene_path = "res://stage0.tscn"
 
 [node name="BackgroundImage" type="TextureRect" parent="."]
 layout_mode = 2
