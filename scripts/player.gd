@@ -8,20 +8,28 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var attraction_zone = $"Attraction Zone"
+@onready var items = $"../Items"
 
 
 func _ready():
 	attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_DISABLED
+
 
 func _input(_event):
 	if Input.is_action_just_pressed("staff_on"):
 		attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_COMBINE
 		attraction_zone.gravity_point = true
 		print("Staff Enabled!")
+		for i in items.get_children():
+			i.gravity_scale = 1
 	elif Input.is_action_just_pressed("staff_off"):
 		attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_DISABLED
 		attraction_zone.gravity_point = false
 		print("Staff Disabled!")
+	elif Input.is_action_just_pressed("aim_set"):
+		attraction_zone.look_at(get_global_mouse_position())
+	elif Input.is_action_just_pressed("aim_cancel"):
+		attraction_zone.rotation = 0
 
 
 func _physics_process(delta):
@@ -35,7 +43,6 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 			animated_sprite_2d.play("jump")
 		
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")

@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6ncnlf15l8g3"]
+[gd_scene load_steps=4 format=3 uid="uid://c6ncnlf15l8g3"]
 
 [ext_resource type="PackedScene" uid="uid://dsottsavymv0e" path="res://scenes/player.tscn" id="1_ulxur"]
-[ext_resource type="PackedScene" uid="uid://c0o0sn4wtauet" path="res://scenes/bat_enemy.tscn" id="2_rwggn"]
 [ext_resource type="PackedScene" uid="uid://bh0jnoo8dxubg" path="res://scenes/item.tscn" id="3_yfli6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1v4ht"]
@@ -23,10 +22,44 @@ shape = SubResource("WorldBoundaryShape2D_1v4ht")
 position = Vector2(325, 125)
 zoom = Vector2(0.75, 0.75)
 
-[node name="BatEnemy" parent="." instance=ExtResource("2_rwggn")]
-position = Vector2(931, 319)
+[node name="Items" type="Node" parent="."]
 
-[node name="Item" parent="." instance=ExtResource("3_yfli6")]
-position = Vector2(269, 365)
+[node name="Item3" parent="Items" instance=ExtResource("3_yfli6")]
+position = Vector2(879, 17)
+collision_layer = 9
+collision_mask = 9
+
+[node name="Item2" parent="Items" instance=ExtResource("3_yfli6")]
+position = Vector2(387, -193)
+collision_layer = 9
+collision_mask = 9
+
+[node name="Item4" parent="Items" instance=ExtResource("3_yfli6")]
+position = Vector2(992, 162)
+collision_layer = 9
+collision_mask = 9
+
+[node name="Item5" parent="Items" instance=ExtResource("3_yfli6")]
+position = Vector2(574, -378)
+collision_layer = 9
+collision_mask = 9
+
+[node name="Item6" parent="Items" instance=ExtResource("3_yfli6")]
+position = Vector2(253, -362)
+collision_layer = 9
+collision_mask = 9
+
+[node name="Item7" parent="Items" instance=ExtResource("3_yfli6")]
+position = Vector2(919, -156)
+collision_layer = 9
+collision_mask = 9
+
+[node name="Item8" parent="Items" instance=ExtResource("3_yfli6")]
+position = Vector2(722, -148)
+collision_layer = 9
+collision_mask = 9
+
+[node name="Item" parent="Items" instance=ExtResource("3_yfli6")]
+position = Vector2(379, 23)
 collision_layer = 9
 collision_mask = 9
