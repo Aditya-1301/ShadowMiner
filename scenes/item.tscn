@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh0jnoo8dxubg"]
+
+[ext_resource type="Texture2D" uid="uid://dnh03ilikv25n" path="res://icon.svg" id="1_76mxi"]
+
+[sub_resource type="GDScript" id="GDScript_5etvt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_saf4e"]
+
+[node name="Item" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 8
+can_sleep = false
+linear_damp = 5.0
+script = SubResource("GDScript_5etvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_76mxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_saf4e")

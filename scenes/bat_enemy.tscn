@@ -52,7 +52,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"flying",
-"speed": 4.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -86,8 +86,8 @@ script = ExtResource("1_cgf6d")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -1)
 sprite_frames = SubResource("SpriteFrames_7ysnd")
-animation = &"idle"
-frame_progress = 0.914646
+animation = &"flying"
+frame_progress = 0.287882
 flip_h = true
 
 [node name="detection_area" type="Area2D" parent="."]
