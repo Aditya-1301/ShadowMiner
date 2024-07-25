@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://4gi0uwy803dq"]
+[gd_scene load_steps=4 format=3 uid="uid://4gi0uwy803dq"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_4pj2y"]
+[ext_resource type="AudioStream" uid="uid://8hftkw62src7" path="res://sound/Music/747635__newlocknew__ambmisc_early-morningsummernear-the-schoolswiftscrows.wav" id="2_4w8bm"]
+[ext_resource type="PackedScene" uid="uid://dm616m3tpat32" path="res://scenes/Options/options_menu.tscn" id="3_dk4uf"]
 
 [node name="Menu" type="MarginContainer"]
 anchors_preset = 15
@@ -64,5 +66,13 @@ text = "Quit game"
 layout_mode = 2
 text = "Version 1.0"
 
+[node name="IntroSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4w8bm")
+
+[node name="Options_Menu" parent="." instance=ExtResource("3_dk4uf")]
+visible = false
+layout_mode = 2
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuItems/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuItems/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuItems/QuitButton" to="." method="_on_QuitButton_pressed"]
