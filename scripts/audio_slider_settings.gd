@@ -8,7 +8,6 @@ extends Control
 
 var bus_index : int = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	h_slider.value_changed.connect(on_value_changed)
 	get_bus_name_by_index()
@@ -31,3 +30,5 @@ func set_audio_num_label_text():
 
 func get_bus_name_by_index() -> void:
 	bus_index = AudioServer.get_bus_index(bus_name)
+
+# Credit to CoffeCrow (https://www.youtube.com/watch?v=yWvqvjLJ5Ko&list=PLhBqFleCVBkXQiE8Nm4Co_1iJJ4L7UIzr&index=6)

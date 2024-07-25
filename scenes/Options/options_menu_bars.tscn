@@ -22,8 +22,10 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
+current_tab = 1
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
@@ -49,7 +51,6 @@ theme_override_constants/separation = 64
 layout_mode = 2
 
 [node name="Misc" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Misc"]
@@ -69,32 +70,14 @@ layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Misc/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "
-"
-
 [node name="Label2" type="Label" parent="TabContainer/Misc/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "
-"
 
 [node name="Label3" type="Label" parent="TabContainer/Misc/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "
-"
 
 [node name="Label4" type="Label" parent="TabContainer/Misc/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "
-"
-
-[node name="Label5" type="Label" parent="TabContainer/Misc/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "
-"
