@@ -16,18 +16,18 @@ func _ready():
 
 
 func _input(_event):
-	if Input.is_action_just_pressed("staff_on"):
+	if Input.is_action_pressed("staff_on"):
 		attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_COMBINE
 		attraction_zone.gravity_point = true
 		print("Staff Enabled!")
 		for i in items.get_children():
 			i.gravity_scale = 1
-	elif Input.is_action_just_pressed("staff_off"):
+	elif Input.is_action_just_released("staff_on"):
 		attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_DISABLED
 		attraction_zone.gravity_point = false
 		print("Staff Disabled!")
 	elif Input.is_action_just_pressed("aim_set"):
-		attraction_zone.look_at(get_global_mouse_position())
+		attraction_zone.rotation = get_local_mouse_position().angle() + PI/2
 	elif Input.is_action_just_pressed("aim_cancel"):
 		attraction_zone.rotation = 0
 
@@ -55,7 +55,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite_2d.play("idle")
 	
-	if Input.is_action_just_pressed("staff_on"):
+	if Input.is_action_pressed("staff_on"):
 		animated_sprite_2d.play("attack1")
 
 	move_and_slide()

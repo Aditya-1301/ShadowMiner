@@ -1,38 +1,38 @@
 [gd_scene load_steps=15 format=3 uid="uid://c0o0sn4wtauet"]
 
-[ext_resource type="Script" path="res://scripts/BatEnemy.gd" id="1_cgf6d"]
-[ext_resource type="Texture2D" uid="uid://c3dxfsfynxobl" path="res://assets/Enemies/Bat/Crow.png" id="2_h5gcq"]
+[ext_resource type="Script" path="res://scripts/CrowEnemy.gd" id="1_ewmbh"]
+[ext_resource type="Texture2D" uid="uid://c3dxfsfynxobl" path="res://assets/Enemies/Bat/Crow.png" id="2_s7jr3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqv3m"]
-atlas = ExtResource("2_h5gcq")
+atlas = ExtResource("2_s7jr3")
 region = Rect2(96, 96, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3mrx"]
-atlas = ExtResource("2_h5gcq")
+atlas = ExtResource("2_s7jr3")
 region = Rect2(144, 96, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vsgnk"]
-atlas = ExtResource("2_h5gcq")
+atlas = ExtResource("2_s7jr3")
 region = Rect2(0, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3q3d4"]
-atlas = ExtResource("2_h5gcq")
+atlas = ExtResource("2_s7jr3")
 region = Rect2(48, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muxhi"]
-atlas = ExtResource("2_h5gcq")
+atlas = ExtResource("2_s7jr3")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jjnlc"]
-atlas = ExtResource("2_h5gcq")
+atlas = ExtResource("2_s7jr3")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_52k2f"]
-atlas = ExtResource("2_h5gcq")
+atlas = ExtResource("2_s7jr3")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ioil"]
-atlas = ExtResource("2_h5gcq")
+atlas = ExtResource("2_s7jr3")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ysnd"]
@@ -81,7 +81,7 @@ radius = 16.0
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_fn5cw"]
 
 [node name="BatEnemy" type="CharacterBody2D"]
-script = ExtResource("1_cgf6d")
+script = ExtResource("1_ewmbh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -1)
