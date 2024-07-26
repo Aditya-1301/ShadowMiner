@@ -1,13 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://4gi0uwy803dq"]
+[gd_scene load_steps=9 format=3 uid="uid://4gi0uwy803dq"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_4pj2y"]
 [ext_resource type="AudioStream" uid="uid://8hftkw62src7" path="res://sound/Music/747635__newlocknew__ambmisc_early-morningsummernear-the-schoolswiftscrows.wav" id="2_4w8bm"]
 [ext_resource type="PackedScene" uid="uid://dm616m3tpat32" path="res://scenes/Options/options_menu.tscn" id="3_dk4uf"]
 
+[sub_resource type="SystemFont" id="SystemFont_0iwfw"]
+font_names = PackedStringArray("Old English Text MT")
+
+[sub_resource type="SystemFont" id="SystemFont_jupgq"]
+font_names = PackedStringArray("Old English Text MT")
+
+[sub_resource type="SystemFont" id="SystemFont_7lx40"]
+font_names = PackedStringArray("Old English Text MT")
+
+[sub_resource type="SystemFont" id="SystemFont_0ih1o"]
+font_names = PackedStringArray("Old English Text MT")
+
+[sub_resource type="SystemFont" id="SystemFont_pcp30"]
+font_names = PackedStringArray("Old English Text MT")
+
 [node name="Menu" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 0
@@ -32,6 +51,7 @@ alignment = 1
 [node name="title" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 auto_translate = false
+theme_override_fonts/font = SubResource("SystemFont_0iwfw")
 theme_override_font_sizes/font_size = 40
 text = "Shadow Miner"
 horizontal_alignment = 1
@@ -46,6 +66,7 @@ theme_override_constants/separation = 30
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
+theme_override_fonts/font = SubResource("SystemFont_jupgq")
 theme_override_font_sizes/font_size = 30
 text = "Start
 "
@@ -53,17 +74,20 @@ text = "Start
 [node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer/MenuItems"]
 layout_mode = 2
 theme_override_constants/outline_size = 0
+theme_override_fonts/font = SubResource("SystemFont_7lx40")
 theme_override_font_sizes/font_size = 30
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/MenuItems"]
 layout_mode = 2
 theme_override_constants/outline_size = 0
+theme_override_fonts/font = SubResource("SystemFont_0ih1o")
 theme_override_font_sizes/font_size = 25
 text = "Quit game"
 
 [node name="version_text" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_pcp30")
 text = "Version 1.0"
 
 [node name="IntroSound" type="AudioStreamPlayer" parent="."]

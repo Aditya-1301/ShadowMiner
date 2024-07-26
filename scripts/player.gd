@@ -1,19 +1,15 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var attraction_zone = $"Attraction Zone"
 @onready var items = $"../Items"
 
-
 func _ready():
 	attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_DISABLED
-
 
 func _input(_event):
 	if Input.is_action_pressed("staff_on"):
@@ -27,35 +23,40 @@ func _input(_event):
 		attraction_zone.gravity_point = false
 		print("Staff Disabled!")
 	elif Input.is_action_just_pressed("aim_set"):
-		attraction_zone.rotation = get_local_mouse_position().angle() + PI/2
+		attraction_zone.rotation = get_local_mouse_position().angle() + PI / 2
 	elif Input.is_action_just_pressed("aim_cancel"):
 		attraction_zone.rotation = 0
-
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		animated_sprite_2d.play("fall")
+		if animated_sprite_2d.animation != "fall":
+			animated_sprite_2d.play("fall")
 	else:
 		# Handle jump.
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_VELOCITY
 			animated_sprite_2d.play("jump")
 		
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
+	if direction != 0:
 		velocity.x = direction * SPEED
-		animated_sprite_2d.play("run")
-		# Flip the sprite based on direction
+		if animated_sprite_2d.animation != "run":
+			animated_sprite_2d.play("run")
 		animated_sprite_2d.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animated_sprite_2d.play("idle")
+		if is_on_floor() and animated_sprite_2d.animation != "idle":
+			animated_sprite_2d.play("idle")
 	
-	if Input.is_action_pressed("staff_on"):
-		animated_sprite_2d.play("attack1")
+	# Handle staff activation animation
+	if Input.is_action_pressed("staff_on") and attraction_zone.gravity_point and animated_sprite_2d.animation != "activate_staff":
+		animated_sprite_2d.play("activate_staff")
+	
+	# Handle attack animation
+	if Input.is_action_pressed("attack") and not attraction_zone.gravity_point and animated_sprite_2d.animation != "attack":
+		animated_sprite_2d.play("attack")
 
 	move_and_slide()
