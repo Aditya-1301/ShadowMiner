@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6ncnlf15l8g3"]
+[gd_scene load_steps=7 format=3 uid="uid://c6ncnlf15l8g3"]
 
 [ext_resource type="Script" path="res://scripts/stage0.gd" id="1_8cmhc"]
 [ext_resource type="PackedScene" uid="uid://dsottsavymv0e" path="res://scenes/player.tscn" id="1_ulxur"]
+[ext_resource type="PackedScene" uid="uid://dkd8vb1lkvea6" path="res://scenes/coin.tscn" id="3_8t2yj"]
 [ext_resource type="PackedScene" uid="uid://bh0jnoo8dxubg" path="res://scenes/item.tscn" id="3_yfli6"]
 [ext_resource type="AudioStream" uid="uid://kcptfvybwinc" path="res://sound/Music/730344__freaklord__dark-room.ogg" id="4_vth2o"]
 
@@ -26,6 +27,9 @@ position = Vector2(325, 125)
 zoom = Vector2(0.75, 0.75)
 
 [node name="Items" type="Node" parent="."]
+
+[node name="Coin" parent="Items" instance=ExtResource("3_8t2yj")]
+position = Vector2(44, 62)
 
 [node name="Item3" parent="Items" instance=ExtResource("3_yfli6")]
 position = Vector2(879, 17)
