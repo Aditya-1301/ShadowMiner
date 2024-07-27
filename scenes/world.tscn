@@ -1,24 +1,25 @@
-[gd_scene load_steps=20 format=3 uid="uid://c6ncnlf15l8g3"]
+[gd_scene load_steps=21 format=3 uid="uid://c2xrwk754oifb"]
 
-[ext_resource type="Script" path="res://scripts/stage0.gd" id="1_8cmhc"]
-[ext_resource type="PackedScene" uid="uid://dsottsavymv0e" path="res://scenes/player.tscn" id="1_ulxur"]
-[ext_resource type="Texture2D" uid="uid://daopkriekpon" path="res://assets/Backgrounds/Parallax/1.png" id="2_2e02h"]
-[ext_resource type="Texture2D" uid="uid://di400pwwt5pfm" path="res://assets/Backgrounds/CaveBackground.png" id="2_cbl07"]
-[ext_resource type="Texture2D" uid="uid://bnc6736yat04q" path="res://assets/Backgrounds/Parallax/2.png" id="3_1nqb1"]
-[ext_resource type="PackedScene" uid="uid://dkd8vb1lkvea6" path="res://scenes/coin.tscn" id="3_8t2yj"]
-[ext_resource type="Script" path="res://scripts/CaveLight1.gd" id="4_3cc8p"]
-[ext_resource type="AudioStream" uid="uid://kcptfvybwinc" path="res://sound/Music/730344__freaklord__dark-room.ogg" id="4_vth2o"]
-[ext_resource type="Texture2D" uid="uid://cqnu0txbq4em2" path="res://assets/Backgrounds/Parallax/3fx.png" id="5_t8216"]
-[ext_resource type="Texture2D" uid="uid://ch8r0ojumer8o" path="res://assets/Backgrounds/Parallax/4.png" id="6_ylih1"]
-[ext_resource type="Texture2D" uid="uid://tfh1hat2y2ma" path="res://assets/Backgrounds/Parallax/5.png" id="7_smjjv"]
-[ext_resource type="Texture2D" uid="uid://di8cw5j3y00uv" path="res://assets/Backgrounds/Parallax/6fx.png" id="8_8chyk"]
-[ext_resource type="Texture2D" uid="uid://cjoghkdqte05b" path="res://assets/Backgrounds/Parallax/7.png" id="9_boo3i"]
-[ext_resource type="Script" path="res://scripts/CaveLight3.gd" id="10_7q3dw"]
-[ext_resource type="Texture2D" uid="uid://x0cn4arteyy2" path="res://assets/Backgrounds/Parallax/8fx.png" id="11_s44ma"]
-[ext_resource type="Texture2D" uid="uid://b8fqpxyx63kn5" path="res://assets/Backgrounds/Parallax/9.png" id="12_6qagx"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_iy7pp"]
+[ext_resource type="Texture2D" uid="uid://daopkriekpon" path="res://assets/Backgrounds/Parallax/1.png" id="2_4wp1p"]
+[ext_resource type="Texture2D" uid="uid://bnc6736yat04q" path="res://assets/Backgrounds/Parallax/2.png" id="3_153rp"]
+[ext_resource type="Script" path="res://scripts/CaveLight1.gd" id="4_rwpq8"]
+[ext_resource type="Texture2D" uid="uid://cqnu0txbq4em2" path="res://assets/Backgrounds/Parallax/3fx.png" id="5_g0t02"]
+[ext_resource type="Texture2D" uid="uid://ch8r0ojumer8o" path="res://assets/Backgrounds/Parallax/4.png" id="6_fkd14"]
+[ext_resource type="Texture2D" uid="uid://tfh1hat2y2ma" path="res://assets/Backgrounds/Parallax/5.png" id="7_cww1e"]
+[ext_resource type="Texture2D" uid="uid://di8cw5j3y00uv" path="res://assets/Backgrounds/Parallax/6fx.png" id="8_kxis1"]
+[ext_resource type="Texture2D" uid="uid://cjoghkdqte05b" path="res://assets/Backgrounds/Parallax/7.png" id="9_6wvq6"]
+[ext_resource type="Script" path="res://scripts/CaveLight3.gd" id="10_wonym"]
+[ext_resource type="Texture2D" uid="uid://x0cn4arteyy2" path="res://assets/Backgrounds/Parallax/8fx.png" id="11_wh2uv"]
+[ext_resource type="Texture2D" uid="uid://b8fqpxyx63kn5" path="res://assets/Backgrounds/Parallax/9.png" id="12_mlbb2"]
+[ext_resource type="Texture2D" uid="uid://di400pwwt5pfm" path="res://assets/Backgrounds/CaveBackground.png" id="13_nydyk"]
+[ext_resource type="PackedScene" uid="uid://dsottsavymv0e" path="res://scenes/player.tscn" id="14_keark"]
+[ext_resource type="PackedScene" uid="uid://dkd8vb1lkvea6" path="res://scenes/coin.tscn" id="15_bcjvn"]
+[ext_resource type="AudioStream" uid="uid://kcptfvybwinc" path="res://sound/Music/730344__freaklord__dark-room.ogg" id="16_xuww8"]
+[ext_resource type="PackedScene" uid="uid://cldch6y2mugmd" path="res://scenes/hearts_container.tscn" id="17_4kd3k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10n1h"]
-texture = ExtResource("2_cbl07")
+texture = ExtResource("13_nydyk")
 0:0/0 = 0
 1:0/0 = 0
 4:0/0 = 0
@@ -7470,8 +7471,8 @@ sources/0 = SubResource("TileSetAtlasSource_10n1h")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1v4ht"]
 
-[node name="Stage0" type="Node2D"]
-script = ExtResource("1_8cmhc")
+[node name="World" type="Node2D"]
+script = ExtResource("1_iy7pp")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -7481,7 +7482,7 @@ motion_mirroring = Vector2(1541.76, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(326.5, 34.5)
 scale = Vector2(0.802604, 0.630556)
-texture = ExtResource("2_2e02h")
+texture = ExtResource("2_4wp1p")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1541.76, 0)
@@ -7489,16 +7490,16 @@ motion_mirroring = Vector2(1541.76, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(326.5, 34.5)
 scale = Vector2(0.802604, 0.630556)
-texture = ExtResource("3_1nqb1")
+texture = ExtResource("3_153rp")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1541.76, 0)
-script = ExtResource("4_3cc8p")
+script = ExtResource("4_rwpq8")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(326.5, 34.5)
 scale = Vector2(0.802604, 0.630556)
-texture = ExtResource("5_t8216")
+texture = ExtResource("5_g0t02")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1541.76, 0)
@@ -7506,7 +7507,7 @@ motion_mirroring = Vector2(1541.76, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
 position = Vector2(326.5, 34.5)
 scale = Vector2(0.802604, 0.630556)
-texture = ExtResource("6_ylih1")
+texture = ExtResource("6_fkd14")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1541.76, 0)
@@ -7514,7 +7515,7 @@ motion_mirroring = Vector2(1541.76, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
 position = Vector2(326.5, 34.5)
 scale = Vector2(0.802604, 0.630556)
-texture = ExtResource("7_smjjv")
+texture = ExtResource("7_cww1e")
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1541.76, 0)
@@ -7522,7 +7523,7 @@ motion_mirroring = Vector2(1541.76, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
 position = Vector2(326.5, 34.5)
 scale = Vector2(0.802604, 0.630556)
-texture = ExtResource("8_8chyk")
+texture = ExtResource("8_kxis1")
 
 [node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1541.76, 0)
@@ -7530,16 +7531,16 @@ motion_mirroring = Vector2(1541.76, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
 position = Vector2(326.5, 34.5)
 scale = Vector2(0.802604, 0.630556)
-texture = ExtResource("9_boo3i")
+texture = ExtResource("9_6wvq6")
 
 [node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1541.76, 0)
-script = ExtResource("10_7q3dw")
+script = ExtResource("10_wonym")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
 position = Vector2(326.5, 34.5)
 scale = Vector2(0.802604, 0.630556)
-texture = ExtResource("11_s44ma")
+texture = ExtResource("11_wh2uv")
 
 [node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1541.76, 0)
@@ -7547,10 +7548,10 @@ motion_mirroring = Vector2(1541.76, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
 position = Vector2(326.5, 34.5)
 scale = Vector2(0.802604, 0.630556)
-texture = ExtResource("12_6qagx")
+texture = ExtResource("12_mlbb2")
 
 [node name="Cave_Background" type="TileMap" parent="."]
-position = Vector2(3, -7)
+position = Vector2(5, -18)
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_gd3m8")
 format = 2
@@ -7558,15 +7559,10 @@ layer_0/name = "Background"
 layer_0/modulate = Color(0.501961, 0.87451, 0.87451, 1)
 layer_0/tile_data = PackedInt32Array(458745, 1310720, 52, 524281, 2752512, 66, 589817, 2752512, 67, 458746, 1376256, 52, 524282, 2818048, 66, 589818, 2818048, 67, 458747, 1441792, 52, 524283, 2883584, 66, 589819, 2883584, 67, 458748, 1507328, 52, 524284, 2949120, 66, 589820, 2949120, 67, 458749, 1572864, 52, 524285, 3014656, 66, 589821, 3014656, 67, 458750, 1638400, 52, 524286, 3080192, 66, 589822, 3080192, 67, 458751, 1703936, 52, 524287, 3145728, 66, 589823, 3145728, 67, 393216, 1769472, 52, 458752, 2818048, 66, 524288, 2818048, 67, 393217, 1835008, 52, 458753, 2883584, 66, 524289, 2883584, 67, 393218, 1900544, 52, 458754, 2949120, 66, 524290, 2949120, 67, 393219, 1310720, 52, 458755, 3014656, 66, 524291, 3014656, 67, 393220, 1376256, 52, 458756, 3080192, 66, 524292, 3080192, 67, 393221, 1441792, 52, 458757, 3145728, 66, 524293, 3145728, 67, 393222, 1507328, 52, 458758, 2883584, 66, 524294, 2883584, 67, 393223, 1310720, 52, 458759, 2949120, 66, 524295, 2949120, 67, 393224, 1376256, 52, 458760, 3014656, 66, 524296, 3014656, 67, 393225, 1441792, 52, 458761, 3080192, 66, 524297, 3080192, 67, 393226, 1507328, 52, 458762, 3145728, 66, 524298, 3145728, 67, 393227, 1572864, 52, 458763, 2883584, 66, 524299, 2883584, 67, 393228, 1638400, 52, 458764, 2949120, 66, 524300, 2949120, 67, 393229, 1703936, 52, 458765, 3014656, 66, 524301, 3014656, 67, 393230, 1769472, 52, 458766, 3080192, 66, 524302, 3080192, 67, 393231, 1835008, 52, 458767, 3145728, 66, 524303, 3145728, 67, 393232, 1900544, 52, 458768, 3211264, 66, 524304, 3211264, 67)
 
-[node name="Player" parent="." instance=ExtResource("1_ulxur")]
+[node name="Player" parent="." instance=ExtResource("14_keark")]
 visibility_layer = 3
 position = Vector2(-287, 407)
 scale = Vector2(1.5, 1.5)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(408, -188)
-scale = Vector2(0.666667, 0.666667)
-zoom = Vector2(0.75, 0.75)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(87, 107)
@@ -7577,29 +7573,44 @@ shape = SubResource("WorldBoundaryShape2D_1v4ht")
 
 [node name="Items" type="Node" parent="."]
 
-[node name="Coin" parent="Items" instance=ExtResource("3_8t2yj")]
+[node name="Coin" parent="Items" instance=ExtResource("15_bcjvn")]
 position = Vector2(44, 62)
 
-[node name="Coin2" parent="Items" instance=ExtResource("3_8t2yj")]
+[node name="Coin2" parent="Items" instance=ExtResource("15_bcjvn")]
 position = Vector2(-175, -155)
 
-[node name="Coin3" parent="Items" instance=ExtResource("3_8t2yj")]
+[node name="Coin3" parent="Items" instance=ExtResource("15_bcjvn")]
 position = Vector2(-273, 70)
 
-[node name="Coin4" parent="Items" instance=ExtResource("3_8t2yj")]
+[node name="Coin4" parent="Items" instance=ExtResource("15_bcjvn")]
 position = Vector2(840, 83)
 
-[node name="Coin5" parent="Items" instance=ExtResource("3_8t2yj")]
+[node name="Coin5" parent="Items" instance=ExtResource("15_bcjvn")]
 position = Vector2(300, -115)
 
-[node name="Coin6" parent="Items" instance=ExtResource("3_8t2yj")]
+[node name="Coin6" parent="Items" instance=ExtResource("15_bcjvn")]
 position = Vector2(477, 90)
 
-[node name="Coin7" parent="Items" instance=ExtResource("3_8t2yj")]
+[node name="Coin7" parent="Items" instance=ExtResource("15_bcjvn")]
 position = Vector2(75, -224)
 
-[node name="Coin8" parent="Items" instance=ExtResource("3_8t2yj")]
+[node name="Coin8" parent="Items" instance=ExtResource("15_bcjvn")]
 position = Vector2(554, -119)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_vth2o")
+stream = ExtResource("16_xuww8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(325, 125)
+zoom = Vector2(0.75, 0.75)
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HeartsContainer" parent="CanvasLayer" instance=ExtResource("17_4kd3k")]
+layout_direction = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
