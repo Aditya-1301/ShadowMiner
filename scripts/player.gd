@@ -6,14 +6,22 @@ const JUMP_VELOCITY = -400.0
 var currentHealth = maxHealth
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var default_gravity_modifier = 1
+var current_gravity_modifier = default_gravity_modifier
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var attraction_zone = $"Attraction Zone"
 @onready var items = $"../Items"
+@onready var gravity_debuff_timer = $"../gravity_debuff_timer"
+var money_aquired = 0
 
+signal on_money_change
 
 func _ready():
 	attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_DISABLED
-
+	items.on_gravity_change.connect(set_gravity_multiplier)
+	gravity_debuff_timer.timeout.connect(reset_gravity_modifer)
+	items.on_increase_money.connect(set_money_increase)
+	on_money_change.connect(show_balance)
 
 func _input(_event):
 	if Input.is_action_pressed("staff_on"):
@@ -21,7 +29,7 @@ func _input(_event):
 		attraction_zone.gravity_point = true
 		print("Staff Enabled!")
 		for i in items.get_children():
-			i.gravity_scale = 1
+			i.gravity_scale = current_gravity_modifier
 	elif Input.is_action_just_released("staff_on"):
 		attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_DISABLED
 		attraction_zone.gravity_point = false
@@ -72,3 +80,18 @@ func _on_hurt_box_area_entered(area):
 		currentHealth -= 1
 		if currentHealth < 0:
 			currentHealth = maxHealth
+
+func set_money_increase(money):
+	money_aquired += money
+	on_money_change.emit()
+	
+func show_balance():
+	print("Current amount of Money: ", money_aquired)
+
+func set_gravity_multiplier(gravity_debuff_multiplier):
+	current_gravity_modifier *= gravity_debuff_multiplier
+	gravity_debuff_timer.one_shot = true
+	gravity_debuff_timer.start()
+	
+func reset_gravity_modifer():
+	current_gravity_modifier = default_gravity_modifier

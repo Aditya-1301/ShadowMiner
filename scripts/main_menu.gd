@@ -3,7 +3,7 @@ extends MarginContainer
 #@export var next_scene_path: String
 @onready var options_menu = $Options_Menu as OptionsMenu
 @onready var margin_container = $MarginContainer
-
+var next_scene = preload("res://scenes/world.tscn") as PackedScene
 
 func _ready():
 	options_menu.exit_options_menu.connect(on_exit_options_button_pressed)
@@ -14,8 +14,8 @@ func _ready():
 	
 
 func _on_StartButton_pressed():
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
-	#get_tree().change_scene_to_file(next_scene_path)
+	get_tree().change_scene_to_packed(next_scene)
+
 
 func _on_QuitButton_pressed():
 	get_tree().quit(0)
