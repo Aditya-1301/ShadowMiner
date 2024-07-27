@@ -9,10 +9,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var attraction_zone = $"Attraction Zone"
 @onready var items = $"../Items"
+@onready var az_sprite_2d = $AttractionZoneSprite
+
 
 
 func _ready():
 	attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_DISABLED
+	az_sprite_2d.visible = false
+	
 
 
 func _input(_event):
@@ -28,6 +32,7 @@ func _input(_event):
 		print("Staff Disabled!")
 	elif Input.is_action_just_pressed("aim_set"):
 		attraction_zone.rotation = get_local_mouse_position().angle() + PI / 2
+		az_sprite_2d.rotation = get_local_mouse_position().angle() -PI/2
 	elif Input.is_action_just_pressed("aim_cancel"):
 		attraction_zone.rotation = 0
 
@@ -59,6 +64,10 @@ func _physics_process(delta):
 	# Handle staff activation animation
 	if Input.is_action_pressed("staff_on") and attraction_zone.gravity_point and animated_sprite_2d.animation != "activate_staff":
 		animated_sprite_2d.play("activate_staff")
+		az_sprite_2d.visible = true
+	
+	if Input.is_action_just_released("staff_on"):
+		az_sprite_2d.visible = false
 	
 	# Handle attack animation
 	if Input.is_action_pressed("attack") and not attraction_zone.gravity_point and animated_sprite_2d.animation != "attack":

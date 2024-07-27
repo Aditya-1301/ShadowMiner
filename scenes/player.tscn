@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dsottsavymv0e"]
+[gd_scene load_steps=58 format=3 uid="uid://dsottsavymv0e"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_68gri"]
 [ext_resource type="Texture2D" uid="uid://bi50f48khfsl6" path="res://assets/Player/Fall.png" id="2_2vqwf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b6c4q122o4o2o" path="res://assets/Player/Attack2.png" id="3_p7job"]
 [ext_resource type="Texture2D" uid="uid://cw58w8366nwwh" path="res://assets/Player/Jump.png" id="4_8wfl1"]
 [ext_resource type="Texture2D" uid="uid://dhbhwdac1m21e" path="res://assets/Player/Run.png" id="5_vtvnt"]
+[ext_resource type="Texture2D" uid="uid://y754suby5483" path="res://assets/Player/StaffBeam.png" id="8_wd3t4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m54ew"]
 atlas = ExtResource("2_36067")
@@ -280,7 +281,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ui3qh"]
-size = Vector2(196, 891.5)
+size = Vector2(125, 893.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nq41f"]
 size = Vector2(85, 165)
@@ -498,7 +499,7 @@ script = ExtResource("1_68gri")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(28, 2)
 sprite_frames = SubResource("SpriteFrames_24qxx")
-animation = &"attack"
+animation = &"activate_staff"
 autoplay = "idle"
 
 [node name="Attraction Zone" type="Area2D" parent="."]
@@ -508,7 +509,7 @@ gravity_space_override = 1
 gravity_point = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attraction Zone"]
-position = Vector2(-17, -383.75)
+position = Vector2(18.5, -382.75)
 shape = SubResource("RectangleShape2D_ui3qh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -581,5 +582,14 @@ hframes = 8
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(-1.5, 10.5)
 shape = SubResource("RectangleShape2D_nq41f")
+
+[node name="AttractionZoneSprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.467011, 0.712016, 0.987191, 1)
+position = Vector2(-29.8802, -76.8414)
+rotation = 3.01244
+scale = Vector2(0.4, 0.8)
+texture = ExtResource("8_wd3t4")
+offset = Vector2(-174.225, 540.339)
+flip_h = true
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
