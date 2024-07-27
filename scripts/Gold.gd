@@ -36,7 +36,7 @@ func hide_and_collect_coin():
 	coin_collected.emit(value)
 	
 	# Teleport to random location (in vicinity)
-	coin.position = Vector2(randi_range(50, get_viewport_rect().size.x - 50), -(randi_range(-50, get_viewport_rect().size.y - 100)))
+	coin.position = Vector2(randi_range(50, get_viewport_rect().size.x - 50), -(randi_range(50, get_viewport_rect().size.y + 100)))
 	
 	# Start time until to reappera
 	reappear_time.start()

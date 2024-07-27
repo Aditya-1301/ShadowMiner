@@ -2,14 +2,18 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+@export var maxHealth = 3
+var currentHealth = maxHealth
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var attraction_zone = $"Attraction Zone"
 @onready var items = $"../Items"
 
+
 func _ready():
 	attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_DISABLED
+
 
 func _input(_event):
 	if Input.is_action_pressed("staff_on"):
@@ -26,6 +30,7 @@ func _input(_event):
 		attraction_zone.rotation = get_local_mouse_position().angle() + PI / 2
 	elif Input.is_action_just_pressed("aim_cancel"):
 		attraction_zone.rotation = 0
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -60,3 +65,10 @@ func _physics_process(delta):
 		animated_sprite_2d.play("attack")
 
 	move_and_slide()
+
+
+func _on_hurt_box_area_entered(area):
+	if area.name == "HurtBox":
+		currentHealth -= 1
+		if currentHealth < 0:
+			currentHealth = maxHealth

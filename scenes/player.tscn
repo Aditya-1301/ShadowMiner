@@ -575,3 +575,11 @@ position = Vector2(28, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("2_36067")
 hframes = 8
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-1.5, 10.5)
+shape = SubResource("RectangleShape2D_nq41f")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
