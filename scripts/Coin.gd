@@ -5,6 +5,8 @@ var value = randi_range(50, 100)
 var player_in_area = false
 @onready var pickable_area = $pickable_area
 @onready var reappear_time = $reappear_time
+@onready var coin = $"."
+
 
 signal coin_collected
 
@@ -19,7 +21,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if player_in_area:
-		print("hide")
 		hide_and_collect_coin()
 
 
@@ -33,6 +34,7 @@ func hide_and_collect_coin():
 	
 	# Teleport to random location (in vicinity)
 	# TBD
+	coin.position = Vector2(randi_range(50, get_viewport_rect().size.x - 50), -(randi_range(-50, get_viewport_rect().size.y - 50)))
 	
 	# Start time until to reappera
 	reappear_time.start()

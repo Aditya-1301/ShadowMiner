@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3dxfsfynxobl"
-path="res://.godot/imported/Crow.png-acbfca170bd1e0d2a3650969b1559922.ctex"
+uid="uid://di400pwwt5pfm"
+path="res://.godot/imported/CaveBackground.png-94f16dba8a6cda83c23ecea7919cf94a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Enemies/Bat/Crow.png"
-dest_files=["res://.godot/imported/Crow.png-acbfca170bd1e0d2a3650969b1559922.ctex"]
+source_file="res://assets/Backgrounds/CaveBackground.png"
+dest_files=["res://.godot/imported/CaveBackground.png-94f16dba8a6cda83c23ecea7919cf94a.ctex"]
 
 [params]
 

@@ -304,23 +304,6 @@ nodes/Animation/position = Vector2(96, 64)
 nodes/output/position = Vector2(512, 96)
 node_connections = [&"output", 0, &"Animation 3"]
 
-[sub_resource type="Animation" id="Animation_kdl5k"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/Sprites/idle_sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
 [sub_resource type="Animation" id="Animation_r0cnw"]
 length = 0.001
 tracks/0/type = "value"
@@ -412,21 +395,21 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
-[sub_resource type="Animation" id="Animation_llas5"]
-resource_name = "jump"
-length = 0.2
+[sub_resource type="Animation" id="Animation_gyctu"]
+resource_name = "attack"
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/Sprites/jumping_sprite:frame")
+tracks/0/path = NodePath("Animations/Sprites/attacking_sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="Animation" id="Animation_k4ol2"]
@@ -446,21 +429,38 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_gyctu"]
-resource_name = "attack"
-length = 0.8
+[sub_resource type="Animation" id="Animation_kdl5k"]
+resource_name = "idle"
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/Sprites/attacking_sprite:frame")
+tracks/0/path = NodePath("Animations/Sprites/idle_sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 1, 2, 3, 4, 5, 6, 7]
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_llas5"]
+resource_name = "jump"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animations/Sprites/jumping_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_h1npq"]

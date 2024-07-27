@@ -29,4 +29,3 @@ texture = ExtResource("2_030sr")
 shape = SubResource("CircleShape2D_dq1w1")
 
 [node name="reappear_time" type="Timer" parent="."]
-wait_time = 10.0
