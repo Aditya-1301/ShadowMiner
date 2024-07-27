@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkd8vb1lkvea6"]
 
 [ext_resource type="Script" path="res://scripts/Coin.gd" id="1_ilwqp"]
-[ext_resource type="Texture2D" uid="uid://ba1xwehl4v7jp" path="res://assets/Items/RPGIcons.png" id="2_030sr"]
+[ext_resource type="Texture2D" uid="uid://ba1xwehl4v7jp" path="res://assets/Items/Coin/Coin.png" id="2_j02vv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ttj7"]
 radius = 27.2947
@@ -21,7 +21,7 @@ shape = SubResource("CircleShape2D_0ttj7")
 
 [node name="Image" type="Sprite2D" parent="."]
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_030sr")
+texture = ExtResource("2_j02vv")
 
 [node name="pickable_area" type="Area2D" parent="."]
 
@@ -29,3 +29,4 @@ texture = ExtResource("2_030sr")
 shape = SubResource("CircleShape2D_dq1w1")
 
 [node name="reappear_time" type="Timer" parent="."]
+wait_time = 10.0

@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6ncnlf15l8g3"]
+[gd_scene load_steps=9 format=3 uid="uid://c6ncnlf15l8g3"]
 
 [ext_resource type="Script" path="res://scripts/stage0.gd" id="1_8cmhc"]
 [ext_resource type="PackedScene" uid="uid://dsottsavymv0e" path="res://scenes/player.tscn" id="1_ulxur"]
 [ext_resource type="Texture2D" uid="uid://di400pwwt5pfm" path="res://assets/Backgrounds/CaveBackground.png" id="2_cbl07"]
 [ext_resource type="PackedScene" uid="uid://dkd8vb1lkvea6" path="res://scenes/coin.tscn" id="3_8t2yj"]
-[ext_resource type="PackedScene" uid="uid://bh0jnoo8dxubg" path="res://scenes/item.tscn" id="3_yfli6"]
 [ext_resource type="AudioStream" uid="uid://kcptfvybwinc" path="res://sound/Music/730344__freaklord__dark-room.ogg" id="4_vth2o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10n1h"]
@@ -7492,45 +7491,26 @@ zoom = Vector2(0.75, 0.75)
 [node name="Coin" parent="Items" instance=ExtResource("3_8t2yj")]
 position = Vector2(44, 62)
 
-[node name="Item3" parent="Items" instance=ExtResource("3_yfli6")]
-position = Vector2(879, 17)
-collision_layer = 9
-collision_mask = 9
+[node name="Coin2" parent="Items" instance=ExtResource("3_8t2yj")]
+position = Vector2(-175, -155)
 
-[node name="Item2" parent="Items" instance=ExtResource("3_yfli6")]
-position = Vector2(387, -193)
-collision_layer = 9
-collision_mask = 9
+[node name="Coin3" parent="Items" instance=ExtResource("3_8t2yj")]
+position = Vector2(-273, 70)
 
-[node name="Item4" parent="Items" instance=ExtResource("3_yfli6")]
-position = Vector2(992, 162)
-collision_layer = 9
-collision_mask = 9
+[node name="Coin4" parent="Items" instance=ExtResource("3_8t2yj")]
+position = Vector2(840, 83)
 
-[node name="Item5" parent="Items" instance=ExtResource("3_yfli6")]
-position = Vector2(574, -378)
-collision_layer = 9
-collision_mask = 9
+[node name="Coin5" parent="Items" instance=ExtResource("3_8t2yj")]
+position = Vector2(300, -115)
 
-[node name="Item6" parent="Items" instance=ExtResource("3_yfli6")]
-position = Vector2(253, -362)
-collision_layer = 9
-collision_mask = 9
+[node name="Coin6" parent="Items" instance=ExtResource("3_8t2yj")]
+position = Vector2(477, 90)
 
-[node name="Item7" parent="Items" instance=ExtResource("3_yfli6")]
-position = Vector2(919, -156)
-collision_layer = 9
-collision_mask = 9
+[node name="Coin7" parent="Items" instance=ExtResource("3_8t2yj")]
+position = Vector2(75, -224)
 
-[node name="Item8" parent="Items" instance=ExtResource("3_yfli6")]
-position = Vector2(722, -148)
-collision_layer = 9
-collision_mask = 9
-
-[node name="Item" parent="Items" instance=ExtResource("3_yfli6")]
-position = Vector2(379, 23)
-collision_layer = 9
-collision_mask = 9
+[node name="Coin8" parent="Items" instance=ExtResource("3_8t2yj")]
+position = Vector2(554, -119)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_vth2o")
