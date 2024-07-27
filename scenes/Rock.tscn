@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgegkk5f4ouvh"]
+
+[ext_resource type="Script" path="res://scripts/Rock.gd" id="1_ph75c"]
+[ext_resource type="Texture2D" uid="uid://0nm5dho3pmk3" path="res://assets/Items/Rock/RPGIcons - kopia.png" id="2_5f0hj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uiyca"]
+radius = 27.2947
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kmk5a"]
+radius = 35.0143
+
+[node name="Rock" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 8
+can_sleep = false
+linear_damp = 5.0
+script = ExtResource("1_ph75c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uiyca")
+
+[node name="Image" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_5f0hj")
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+shape = SubResource("CircleShape2D_kmk5a")
+
+[node name="reappear_time" type="Timer" parent="."]
+wait_time = 5.0

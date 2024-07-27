@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c2xrwk754oifb"]
+[gd_scene load_steps=25 format=3 uid="uid://c2xrwk754oifb"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_iy7pp"]
 [ext_resource type="Texture2D" uid="uid://daopkriekpon" path="res://assets/Backgrounds/Parallax/1.png" id="2_4wp1p"]
@@ -14,9 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://b8fqpxyx63kn5" path="res://assets/Backgrounds/Parallax/9.png" id="12_mlbb2"]
 [ext_resource type="Texture2D" uid="uid://di400pwwt5pfm" path="res://assets/Backgrounds/CaveBackground.png" id="13_nydyk"]
 [ext_resource type="PackedScene" uid="uid://dsottsavymv0e" path="res://scenes/player.tscn" id="14_keark"]
-[ext_resource type="PackedScene" uid="uid://dkd8vb1lkvea6" path="res://scenes/coin.tscn" id="15_bcjvn"]
+[ext_resource type="Script" path="res://scripts/ItemHandler.gd" id="15_bbdkc"]
+[ext_resource type="PackedScene" uid="uid://dkd8vb1lkvea6" path="res://scenes/Gold.tscn" id="15_bcjvn"]
 [ext_resource type="AudioStream" uid="uid://kcptfvybwinc" path="res://sound/Music/730344__freaklord__dark-room.ogg" id="16_xuww8"]
-[ext_resource type="PackedScene" uid="uid://cldch6y2mugmd" path="res://scenes/hearts_container.tscn" id="17_4kd3k"]
+[ext_resource type="PackedScene" path="res://scenes/hearts_container.tscn" id="17_4kd3k"]
+[ext_resource type="PackedScene" uid="uid://cgegkk5f4ouvh" path="res://scenes/Rock.tscn" id="17_fp0bc"]
+[ext_resource type="PackedScene" uid="uid://daxmyw7p0v4yk" path="res://scenes/money_buff.tscn" id="18_bjppy"]
+[ext_resource type="PackedScene" uid="uid://btymnxx8k7s1e" path="res://scenes/gravity_debuff.tscn" id="19_x5wrj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10n1h"]
 texture = ExtResource("13_nydyk")
@@ -7571,31 +7575,59 @@ position = Vector2(87, 107)
 position = Vector2(93, 407)
 shape = SubResource("WorldBoundaryShape2D_1v4ht")
 
-[node name="Items" type="Node" parent="."]
+[node name="Items" type="Node2D" parent="."]
+script = ExtResource("15_bbdkc")
 
-[node name="Coin" parent="Items" instance=ExtResource("15_bcjvn")]
-position = Vector2(44, 62)
+[node name="Gold" parent="Items" instance=ExtResource("15_bcjvn")]
+position = Vector2(599, -33)
 
-[node name="Coin2" parent="Items" instance=ExtResource("15_bcjvn")]
-position = Vector2(-175, -155)
+[node name="Gold2" parent="Items" instance=ExtResource("15_bcjvn")]
+position = Vector2(697, -178)
 
-[node name="Coin3" parent="Items" instance=ExtResource("15_bcjvn")]
-position = Vector2(-273, 70)
+[node name="Gold3" parent="Items" instance=ExtResource("15_bcjvn")]
+position = Vector2(266, -186)
 
-[node name="Coin4" parent="Items" instance=ExtResource("15_bcjvn")]
-position = Vector2(840, 83)
+[node name="Gold4" parent="Items" instance=ExtResource("15_bcjvn")]
+position = Vector2(100, -43)
 
-[node name="Coin5" parent="Items" instance=ExtResource("15_bcjvn")]
-position = Vector2(300, -115)
+[node name="Rock" parent="Items" instance=ExtResource("17_fp0bc")]
+position = Vector2(332, -101)
 
-[node name="Coin6" parent="Items" instance=ExtResource("15_bcjvn")]
-position = Vector2(477, 90)
+[node name="Rock2" parent="Items" instance=ExtResource("17_fp0bc")]
+position = Vector2(741, 133)
 
-[node name="Coin7" parent="Items" instance=ExtResource("15_bcjvn")]
-position = Vector2(75, -224)
+[node name="Rock3" parent="Items" instance=ExtResource("17_fp0bc")]
+position = Vector2(464, 75)
 
-[node name="Coin8" parent="Items" instance=ExtResource("15_bcjvn")]
-position = Vector2(554, -119)
+[node name="Rock4" parent="Items" instance=ExtResource("17_fp0bc")]
+position = Vector2(220, 231)
+
+[node name="Rock5" parent="Items" instance=ExtResource("17_fp0bc")]
+position = Vector2(-27, 164)
+
+[node name="Rock6" parent="Items" instance=ExtResource("17_fp0bc")]
+position = Vector2(554, 144)
+
+[node name="Rock7" parent="Items" instance=ExtResource("17_fp0bc")]
+position = Vector2(92, -212)
+
+[node name="Rock8" parent="Items" instance=ExtResource("17_fp0bc")]
+position = Vector2(-163, -180)
+
+[node name="MoneyBuff" parent="Items" instance=ExtResource("18_bjppy")]
+position = Vector2(992, -216)
+
+[node name="GravityDebuff" parent="Items" instance=ExtResource("19_x5wrj")]
+
+[node name="SpecialItemTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[node name="buff_time" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="gravity_debuff_timer" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_xuww8")

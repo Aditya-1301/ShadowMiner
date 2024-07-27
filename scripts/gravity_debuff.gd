@@ -1,11 +1,11 @@
 extends RigidBody2D
 
 
-var value = randi_range(50, 100)
+var gravity_decrease_multiplier = 0.5
 var player_in_area = false
 @onready var pickable_area = $pickable_area
 @onready var reappear_time = $reappear_time
-@onready var gold = $"."
+@onready var debuff_item = $"."
 
 
 signal on_collected
@@ -24,7 +24,7 @@ func _process(_delta):
 	if player_in_area:
 		hide_and_collect()
 		# Teleport to random location (in vicinity)
-		gold.position = Vector2(randf_range(50.0, get_viewport_rect().size.x - 50.0), -(randf_range(-50.0, get_viewport_rect().size.y - 100.0)))
+		debuff_item.position = Vector2(randf_range(50.0, get_viewport_rect().size.x - 50.0), -(randf_range(-50.0, get_viewport_rect().size.y - 100.0)))
 		player_in_area = false
 	
 		# Start time until to reappera
@@ -38,7 +38,7 @@ func hide_and_collect():
 	pickable_area.set_collision_mask_value(1, false)
 	
 	# Use collected signal to get the value this item!
-	on_collected.emit(value)
+	on_collected.emit(gravity_decrease_multiplier)
 
 func on_body_entered(body: Node2D) -> void:
 	if body.name == str("Player"):
