@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blgue4u78w5wi"
-path="res://.godot/imported/items.png-dc2e14f7492d187f34f0fdfb14bbda1e.ctex"
+uid="uid://cjoghkdqte05b"
+path="res://.godot/imported/7.png-6cf9ca440cd7ee966af35183d8465683.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Items/Gold/items.png"
-dest_files=["res://.godot/imported/items.png-dc2e14f7492d187f34f0fdfb14bbda1e.ctex"]
+source_file="res://assets/Backgrounds/Parallax/7.png"
+dest_files=["res://.godot/imported/7.png-6cf9ca440cd7ee966af35183d8465683.ctex"]
 
 [params]
 
