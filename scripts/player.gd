@@ -12,7 +12,7 @@ var current_gravity_modifier = default_gravity_modifier
 @onready var attraction_zone = $"Attraction Zone"
 @onready var items = $"../Items"
 @onready var az_sprite_2d = $AttractionZoneSprite
-@onready var game_over_1 = %GameOver1
+@onready var game_over = %GameOver
 
 
 @onready var gravity_debuff_timer = $"../gravity_debuff_timer"
@@ -92,7 +92,7 @@ func _on_hurt_box_area_entered(area):
 			# change scene to YOU DIED SCREEN
 			currentHealth = maxHealth
 			money_aquired = 0
-			game_over_1.visible = true
+			game_over.visible = true
 			
 
 func set_money_increase(money):
