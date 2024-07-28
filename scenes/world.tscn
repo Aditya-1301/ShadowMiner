@@ -3,13 +3,11 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_iy7pp"]
 [ext_resource type="Texture2D" uid="uid://daopkriekpon" path="res://assets/Backgrounds/Parallax/1.png" id="2_4wp1p"]
 [ext_resource type="Texture2D" uid="uid://bnc6736yat04q" path="res://assets/Backgrounds/Parallax/2.png" id="3_153rp"]
-[ext_resource type="Script" path="res://scripts/CaveLight1.gd" id="4_rwpq8"]
 [ext_resource type="Texture2D" uid="uid://cqnu0txbq4em2" path="res://assets/Backgrounds/Parallax/3fx.png" id="5_g0t02"]
 [ext_resource type="Texture2D" uid="uid://ch8r0ojumer8o" path="res://assets/Backgrounds/Parallax/4.png" id="6_fkd14"]
 [ext_resource type="Texture2D" uid="uid://tfh1hat2y2ma" path="res://assets/Backgrounds/Parallax/5.png" id="7_cww1e"]
 [ext_resource type="Texture2D" uid="uid://di8cw5j3y00uv" path="res://assets/Backgrounds/Parallax/6fx.png" id="8_kxis1"]
 [ext_resource type="Texture2D" uid="uid://cjoghkdqte05b" path="res://assets/Backgrounds/Parallax/7.png" id="9_6wvq6"]
-[ext_resource type="Script" path="res://scripts/CaveLight3.gd" id="10_wonym"]
 [ext_resource type="Texture2D" uid="uid://x0cn4arteyy2" path="res://assets/Backgrounds/Parallax/8fx.png" id="11_wh2uv"]
 [ext_resource type="Texture2D" uid="uid://b8fqpxyx63kn5" path="res://assets/Backgrounds/Parallax/9.png" id="12_mlbb2"]
 [ext_resource type="Texture2D" uid="uid://di400pwwt5pfm" path="res://assets/Backgrounds/CaveBackground.png" id="13_nydyk"]
@@ -22,8 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://daxmyw7p0v4yk" path="res://scenes/money_buff.tscn" id="18_bjppy"]
 [ext_resource type="PackedScene" uid="uid://btymnxx8k7s1e" path="res://scenes/gravity_debuff.tscn" id="19_x5wrj"]
 [ext_resource type="PackedScene" uid="uid://d4l6aexoupfec" path="res://scenes/PhilosophersShard.tscn" id="20_cyx4b"]
-[ext_resource type="PackedScene" uid="uid://c0o0sn4wtauet" path="res://scenes/crow_enemy.tscn" id="22_harpx"]
-[ext_resource type="PackedScene" uid="uid://bgrmeik86n4j" path="res://scenes/shadow_enemy.tscn" id="23_4nwxe"]
+[ext_resource type="PackedScene" uid="uid://bgrmeik86n4j" path="res://scenes/shadow_enemy.tscn" id="21_ehdqo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10n1h"]
 texture = ExtResource("13_nydyk")
@@ -7519,7 +7516,6 @@ texture = ExtResource("3_153rp")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1541.76, 0)
-script = ExtResource("4_rwpq8")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(326.5, 34.5)
@@ -7560,7 +7556,6 @@ texture = ExtResource("9_6wvq6")
 
 [node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1541.76, 0)
-script = ExtResource("10_wonym")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
 position = Vector2(326.5, 34.5)
@@ -7688,6 +7683,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_fonts/font = SubResource("SystemFont_psudl")
 theme_override_font_sizes/font_size = 30
+text = "Score:"
 
 [node name="TargetToReachLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = 7
@@ -7713,6 +7709,7 @@ offset_right = 40.0
 grow_vertical = 0
 theme_override_fonts/font = SubResource("SystemFont_qamj7")
 theme_override_font_sizes/font_size = 30
+text = "Time:"
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -7750,7 +7747,7 @@ theme_override_fonts/font = SubResource("SystemFont_1h7gi")
 theme_override_font_sizes/font_size = 36
 text = "Main Menu"
 
-[node name="Label" type="Label" parent="GameOver/ColorRect"]
+[node name="GameOverLabel" type="Label" parent="GameOver/ColorRect"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -7765,6 +7762,10 @@ text = "You Died!"
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 60.0
+
+[node name="ShadowEnemy" parent="." instance=ExtResource("21_ehdqo")]
+position = Vector2(527, 420)
+scale = Vector2(2, 2)
 
 [connection signal="pressed" from="GameOver/ColorRect/MenuItems/ReplayButton" to="." method="_on_replay_button_pressed"]
 [connection signal="pressed" from="GameOver/ColorRect/MenuItems/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

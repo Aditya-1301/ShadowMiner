@@ -89,41 +89,46 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func _on_hurt_box_area_entered(area):
-	if area.name == "HurtBox":
-		currentHealth -= 1
-
 
 func _get(property):
 	if property == "damagePoints":
 		return damagePoints
-			
+
 
 func take_damage(_value):
-	if currentHealth < 0:
+	currentHealth -= 1
+	animated_sprite_2d.play("hit")
+	if currentHealth <= 0:
 		# change scene to YOU DIED SCREEN
+		animated_sprite_2d.play("death")
 		currentHealth = maxHealth
 		money_aquired = 0
 		game_over.visible = true
+
 
 func set_money_increase(money):
 	money_aquired += money
 	on_money_aquired_change.emit()
 	
+	
 func show_balance():
 	print("Current amount of Money: ", money_aquired)
+
 
 func increase_philstone_amount():
 	philstone_aquired += 1
 	on_philstone_aquired_change.emit()
 
+
 func show_philstone():
 	print("Current amount of philstone: ", philstone_aquired)
+
 
 func set_gravity_multiplier(gravity_debuff_multiplier):
 	current_gravity_modifier *= gravity_debuff_multiplier
 	gravity_debuff_timer.one_shot = true
 	gravity_debuff_timer.start()
-	
+
+
 func reset_gravity_modifer():
 	current_gravity_modifier = default_gravity_modifier

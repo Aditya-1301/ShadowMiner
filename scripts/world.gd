@@ -43,4 +43,5 @@ func update_labels():
 
 
 func _process(_delta):
+	hearts_container.updateHearts(player.currentHealth)
 	update_labels()
