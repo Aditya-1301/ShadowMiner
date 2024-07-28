@@ -1,15 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://c2xrwk754oifb"]
+[gd_scene load_steps=29 format=3 uid="uid://c2xrwk754oifb"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_iy7pp"]
 [ext_resource type="Texture2D" uid="uid://daopkriekpon" path="res://assets/Backgrounds/Parallax/1.png" id="2_4wp1p"]
 [ext_resource type="Texture2D" uid="uid://bnc6736yat04q" path="res://assets/Backgrounds/Parallax/2.png" id="3_153rp"]
-[ext_resource type="Script" path="res://scripts/CaveLight1.gd" id="4_rwpq8"]
+[ext_resource type="Script" path="res://scripts/cave_light1.gd" id="4_6867i"]
 [ext_resource type="Texture2D" uid="uid://cqnu0txbq4em2" path="res://assets/Backgrounds/Parallax/3fx.png" id="5_g0t02"]
 [ext_resource type="Texture2D" uid="uid://ch8r0ojumer8o" path="res://assets/Backgrounds/Parallax/4.png" id="6_fkd14"]
 [ext_resource type="Texture2D" uid="uid://tfh1hat2y2ma" path="res://assets/Backgrounds/Parallax/5.png" id="7_cww1e"]
 [ext_resource type="Texture2D" uid="uid://di8cw5j3y00uv" path="res://assets/Backgrounds/Parallax/6fx.png" id="8_kxis1"]
 [ext_resource type="Texture2D" uid="uid://cjoghkdqte05b" path="res://assets/Backgrounds/Parallax/7.png" id="9_6wvq6"]
-[ext_resource type="Script" path="res://scripts/CaveLight3.gd" id="10_wonym"]
+[ext_resource type="Script" path="res://scripts/cave_light3.gd" id="10_mru8o"]
 [ext_resource type="Texture2D" uid="uid://x0cn4arteyy2" path="res://assets/Backgrounds/Parallax/8fx.png" id="11_wh2uv"]
 [ext_resource type="Texture2D" uid="uid://b8fqpxyx63kn5" path="res://assets/Backgrounds/Parallax/9.png" id="12_mlbb2"]
 [ext_resource type="Texture2D" uid="uid://di400pwwt5pfm" path="res://assets/Backgrounds/CaveBackground.png" id="13_nydyk"]
@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://scripts/ItemHandler.gd" id="15_bbdkc"]
 [ext_resource type="PackedScene" uid="uid://dkd8vb1lkvea6" path="res://scenes/Gold.tscn" id="15_bcjvn"]
 [ext_resource type="AudioStream" uid="uid://kcptfvybwinc" path="res://sound/Music/730344__freaklord__dark-room.ogg" id="16_xuww8"]
-[ext_resource type="PackedScene" path="res://scenes/hearts_container.tscn" id="17_4kd3k"]
+[ext_resource type="PackedScene" uid="uid://cldch6y2mugmd" path="res://scenes/hearts_container.tscn" id="17_4kd3k"]
 [ext_resource type="PackedScene" uid="uid://cgegkk5f4ouvh" path="res://scenes/Rock.tscn" id="17_fp0bc"]
 [ext_resource type="PackedScene" uid="uid://daxmyw7p0v4yk" path="res://scenes/money_buff.tscn" id="18_bjppy"]
 [ext_resource type="PackedScene" uid="uid://btymnxx8k7s1e" path="res://scenes/gravity_debuff.tscn" id="19_x5wrj"]
@@ -7475,6 +7475,18 @@ sources/0 = SubResource("TileSetAtlasSource_10n1h")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1v4ht"]
 
+[sub_resource type="SystemFont" id="SystemFont_psudl"]
+font_names = PackedStringArray("Old English Text MT")
+
+[sub_resource type="SystemFont" id="SystemFont_v0iwj"]
+font_names = PackedStringArray("Old English Text MT")
+
+[sub_resource type="SystemFont" id="SystemFont_1h7gi"]
+font_names = PackedStringArray("Old English Text MT")
+
+[sub_resource type="SystemFont" id="SystemFont_wddob"]
+font_names = PackedStringArray("Old English Text MT")
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_iy7pp")
 
@@ -7498,7 +7510,7 @@ texture = ExtResource("3_153rp")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1541.76, 0)
-script = ExtResource("4_rwpq8")
+script = ExtResource("4_6867i")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(326.5, 34.5)
@@ -7539,7 +7551,7 @@ texture = ExtResource("9_6wvq6")
 
 [node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1541.76, 0)
-script = ExtResource("10_wonym")
+script = ExtResource("10_mru8o")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
 position = Vector2(326.5, 34.5)
@@ -7644,5 +7656,73 @@ layout_direction = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
+offset_left = -20.0
+offset_bottom = 23.0
 grow_horizontal = 0
-metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = SubResource("SystemFont_psudl")
+theme_override_font_sizes/font_size = 30
+
+[node name="GameOver1" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver1"]
+offset_right = 1159.0
+offset_bottom = 651.0
+color = Color(0.66, 0, 0, 0.239216)
+
+[node name="MenuItems" type="VBoxContainer" parent="GameOver1/ColorRect"]
+layout_mode = 2
+offset_left = 522.5
+offset_top = 282.5
+offset_right = 636.5
+offset_bottom = 454.5
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 30
+
+[node name="ReplayButton" type="Button" parent="GameOver1/ColorRect/MenuItems"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = SubResource("SystemFont_v0iwj")
+theme_override_font_sizes/font_size = 36
+text = "Replay
+"
+
+[node name="MainMenuButton" type="Button" parent="GameOver1/ColorRect/MenuItems"]
+layout_mode = 2
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = SubResource("SystemFont_1h7gi")
+theme_override_font_sizes/font_size = 36
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="GameOver1/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -317.5
+offset_right = 317.5
+offset_bottom = 151.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("SystemFont_wddob")
+theme_override_font_sizes/font_size = 150
+text = "You Died!"
+
+[connection signal="pressed" from="GameOver1/ColorRect/MenuItems/ReplayButton" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="GameOver1/ColorRect/MenuItems/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
