@@ -36,7 +36,10 @@ func hide_and_collect():
 	hide()
 	# Turn off collsion with player (make player unable to scan this obejct)
 	set_collision_mask_value(4, false)
+	set_collision_layer_value(4, false)
 	pickable_area.set_collision_mask_value(1, false)
+	pickable_area.set_collision_layer_value(1, false)
+	
 	# Use collected signal to get the value this item!
 	on_collected.emit(value)
 
@@ -50,6 +53,9 @@ func on_body_exited(body: Node2D) -> void:
 
 func on_reappear_timeout() -> void:
 	set_collision_mask_value(4, true)
+	set_collision_layer_value(4, true)
 	pickable_area.set_collision_mask_value(1, true)
+	pickable_area.set_collision_layer_value(1, true)
 	
 	show()
+

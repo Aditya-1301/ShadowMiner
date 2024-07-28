@@ -4,10 +4,13 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @export var maxHealth = 3
 var currentHealth = maxHealth
-
+var damagePoints = 1
+var money_aquired = 0
+var philstone_aquired = 0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var default_gravity_modifier = 1
 var current_gravity_modifier = default_gravity_modifier
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var attraction_zone = $"Attraction Zone"
 @onready var items = $"../Items"
@@ -16,9 +19,9 @@ var current_gravity_modifier = default_gravity_modifier
 
 
 @onready var gravity_debuff_timer = $"../gravity_debuff_timer"
-var money_aquired = 0
 
-signal on_money_change
+signal on_money_aquired_change
+signal on_philstone_aquired_change
 
 func _ready():
 	attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_DISABLED
@@ -26,7 +29,9 @@ func _ready():
 	items.on_gravity_change.connect(set_gravity_multiplier)
 	gravity_debuff_timer.timeout.connect(reset_gravity_modifer)
 	items.on_increase_money.connect(set_money_increase)
-	on_money_change.connect(show_balance)
+	on_money_aquired_change.connect(show_balance)
+	items.on_philShard_increase.connect(increase_philstone_amount)
+	on_philstone_aquired_change.connect(show_philstone)
 
 func _input(_event):
 	if Input.is_action_pressed("staff_on"):
@@ -84,23 +89,30 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-
-func _on_hurt_box_area_entered(area):
-	if area.name == "HurtBox":
-		currentHealth -= 1
-		if currentHealth < 0:
-			# change scene to YOU DIED SCREEN
-			currentHealth = maxHealth
-			money_aquired = 0
-			game_over_1.visible = true
+func _get(property):
+	if property == "damagePoints":
+		return damagePoints
 			
+func take_damage(value):
+	if currentHealth < 0:
+		# change scene to YOU DIED SCREEN
+		currentHealth = maxHealth
+		money_aquired = 0
+		game_over_1.visible = true
 
 func set_money_increase(money):
 	money_aquired += money
-	on_money_change.emit()
+	on_money_aquired_change.emit()
 	
 func show_balance():
 	print("Current amount of Money: ", money_aquired)
+
+func increase_philstone_amount():
+	philstone_aquired += 1
+	on_philstone_aquired_change.emit()
+
+func show_philstone():
+	print("Current amount of philstone: ", philstone_aquired)
 
 func set_gravity_multiplier(gravity_debuff_multiplier):
 	current_gravity_modifier *= gravity_debuff_multiplier
