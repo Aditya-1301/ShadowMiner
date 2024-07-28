@@ -15,7 +15,7 @@ func _ready():
 	gravity_scale = 0
 	pickable_area.body_entered.connect(on_body_entered)
 	pickable_area.body_exited.connect(on_body_exited)
-	reappear_time.one_shot = true	
+	reappear_time.one_shot = true
 	reappear_time.connect("timeout", on_reappear_timeout)
 	
 
@@ -27,7 +27,7 @@ func _process(_delta):
 		gold.position = Vector2(randf_range(50.0, get_viewport_rect().size.x - 50.0), -(randf_range(-50.0, get_viewport_rect().size.y - 100.0)))
 		player_in_area = false
 	
-		# Start time until to reappera
+		# Start time until reappearace
 		reappear_time.start()
 
 

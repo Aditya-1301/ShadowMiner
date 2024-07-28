@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://c0o0sn4wtauet"]
 
-[ext_resource type="Script" path="res://scripts/CrowEnemy.gd" id="1_ewmbh"]
+[ext_resource type="Script" path="res://scripts/crow_enemy.gd" id="1_ewmbh"]
 [ext_resource type="Texture2D" uid="uid://c3dxfsfynxobl" path="res://assets/Enemies/Crow/Crow.png" id="2_s7jr3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqv3m"]

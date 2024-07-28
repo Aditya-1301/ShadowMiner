@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgegkk5f4ouvh"]
 
-[ext_resource type="Script" path="res://scripts/Rock.gd" id="1_ph75c"]
+[ext_resource type="Script" path="res://scripts/rock.gd" id="1_ph75c"]
 [ext_resource type="Texture2D" uid="uid://0nm5dho3pmk3" path="res://assets/Items/Rock/RPGIcons - kopia.png" id="2_5f0hj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uiyca"]
