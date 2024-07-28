@@ -593,7 +593,7 @@ script = ExtResource("1_68gri")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(28, 2)
 sprite_frames = SubResource("SpriteFrames_24qxx")
-animation = &"hit"
+animation = &"activate_staff"
 autoplay = "idle"
 
 [node name="Attraction Zone" type="Area2D" parent="."]
@@ -603,10 +603,20 @@ gravity_space_override = 1
 gravity_point = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attraction Zone"]
+visible = false
 position = Vector2(18.5, -382.75)
 shape = SubResource("RectangleShape2D_ui3qh")
 
+[node name="AttractionZoneSprite" type="Sprite2D" parent="Attraction Zone"]
+self_modulate = Color(0.467011, 0.712016, 0.987191, 1)
+position = Vector2(115, -945)
+scale = Vector2(0.4, 0.8)
+texture = ExtResource("8_wd3t4")
+offset = Vector2(-174.225, 540.339)
+flip_v = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(21.5, 0)
 shape = SubResource("RectangleShape2D_w2qwb")
 
@@ -671,20 +681,12 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_36067")
 hframes = 8
 
-[node name="AttractionZoneSprite" type="Sprite2D" parent="."]
-self_modulate = Color(0.467011, 0.712016, 0.987191, 1)
-position = Vector2(-29.8802, -76.8414)
-rotation = 3.01244
-scale = Vector2(0.4, 0.8)
-texture = ExtResource("8_wd3t4")
-offset = Vector2(-174.225, 540.339)
-flip_h = true
-
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("9_gn3sm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
 position = Vector2(21, 1)
 shape = SubResource("CapsuleShape2D_wu6ph")

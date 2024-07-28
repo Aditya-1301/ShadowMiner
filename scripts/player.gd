@@ -14,8 +14,8 @@ var current_gravity_modifier = default_gravity_modifier
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var attraction_zone = $"Attraction Zone"
 @onready var items = $"../Items"
-@onready var az_sprite_2d = $AttractionZoneSprite
 @onready var game_over = %GameOver
+@onready var az_sprite_2d = $"Attraction Zone/AttractionZoneSprite"
 
 
 @onready var gravity_debuff_timer = $"../gravity_debuff_timer"
@@ -40,13 +40,19 @@ func _input(_event):
 		print("Staff Enabled!")
 		for i in items.get_children():
 			i.gravity_scale = current_gravity_modifier
+		if animated_sprite_2d.flip_h:
+			az_sprite_2d.flip_h = true
+			az_sprite_2d.position.x -= 32 # Decrementing by 32 places the sprite in a relatively better position to the flipped player sprite
 	elif Input.is_action_just_released("staff_on"):
 		attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_DISABLED
 		attraction_zone.gravity_point = false
+		if az_sprite_2d.flip_h == true:
+			az_sprite_2d.flip_h = false
+			az_sprite_2d.position.x += 32 # Incrementing by 32 moves it to its original position
 		print("Staff Disabled!")
 	elif Input.is_action_just_pressed("aim_set"):
 		attraction_zone.rotation = get_local_mouse_position().angle() + PI / 2
-		az_sprite_2d.rotation = get_local_mouse_position().angle() -PI/2
+		#az_sprite_2d.rotation = get_local_mouse_position().angle() -PI/2 ; For Rotation = 172.6 degrees
 	elif Input.is_action_just_pressed("aim_cancel"):
 		attraction_zone.rotation = 0
 
@@ -70,6 +76,11 @@ func _physics_process(delta):
 		if animated_sprite_2d.animation != "run":
 			animated_sprite_2d.play("run")
 		animated_sprite_2d.flip_h = direction < 0
+		if animated_sprite_2d.flip_h == true and Input.is_action_pressed("staff_on"):
+			print("reached1")
+		elif az_sprite_2d.flip_h == false and Input.is_action_pressed("staff_on"):
+			print("reached2")
+			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_on_floor() and animated_sprite_2d.animation != "idle":
