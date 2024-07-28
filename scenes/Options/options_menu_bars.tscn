@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://n1j8n0et84sj"]
+[gd_scene load_steps=3 format=3 uid="uid://n1j8n0et84sj"]
 
 [ext_resource type="PackedScene" uid="uid://dakxyh6al3s7" path="res://scenes/Options/audio_slider_settings.tscn" id="1_udgii"]
+
+[sub_resource type="SystemFont" id="SystemFont_us8qx"]
+font_names = PackedStringArray("Old English Text MT")
 
 [node name="OptionsMenuBars" type="Control"]
 layout_mode = 3
@@ -21,6 +24,8 @@ offset_right = -100.0
 offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_us8qx")
+theme_override_font_sizes/font_size = 25
 tab_alignment = 1
 current_tab = 1
 

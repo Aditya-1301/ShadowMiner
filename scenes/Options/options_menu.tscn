@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm616m3tpat32"]
+[gd_scene load_steps=5 format=3 uid="uid://dm616m3tpat32"]
 
 [ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_i72pu"]
 [ext_resource type="PackedScene" uid="uid://n1j8n0et84sj" path="res://scenes/Options/options_menu_bars.tscn" id="2_14o6s"]
 
 [sub_resource type="SystemFont" id="SystemFont_3qny5"]
-font_names = PackedStringArray("Impact")
+font_names = PackedStringArray("Old English Text MT")
 subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_e276x"]
+font_names = PackedStringArray("Old English Text MT")
 
 [node name="Options_Menu" type="Control"]
 layout_mode = 3
@@ -37,7 +40,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = SubResource("SystemFont_3qny5")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 50
 text = "Options
 "
 horizontal_alignment = 1
@@ -50,4 +53,6 @@ size_flags_vertical = 3
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_fonts/font = SubResource("SystemFont_e276x")
+theme_override_font_sizes/font_size = 30
 text = "Exit"
