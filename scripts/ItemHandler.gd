@@ -5,14 +5,16 @@ var current_multiplier_buff = 1
 var multiply_state = false
 
 @onready var player = $"../Player"
-@onready var buff_time = $"../buff_time" as Timer
+@onready var buff_time = $"../buff_timer" as Timer
 @onready var money_buff = $MoneyBuff
 @onready var special_item_timer = $"../SpecialItemTimer"
 @onready var gravity_debuff = $GravityDebuff
+@onready var philosophers_shard = $PhilosophersShard
 
 
 signal on_gravity_change
 signal on_increase_money
+signal on_philShard_increase
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,6 +41,9 @@ func _ready():
 		if item.name.begins_with("GravityDebuff"):
 			item.connect("on_collected", on_GravityDebuff_collected)
 			
+		if item.name.begins_with("PhilosophersShard"):
+			item.connect("on_collected", on_PhilShard_collected)
+			
 
 func _process(_delta):
 	if current_multiplier_buff != multiplier_buff_default:
@@ -60,11 +65,14 @@ func on_rock_collected(value):
 func on_GravityDebuff_collected(gravity_modifier):
 	on_gravity_change.emit(gravity_modifier)
 
-# Buff time logic
 func on_mbuff_collected(value):
 	current_multiplier_buff = value
 	buff_time.start()
+
+func on_PhilShard_collected():
+	on_philShard_increase.emit()
 	
+# Buff time logic
 func on_buff_time_timeout():
 	# Reset money buff
 	current_multiplier_buff = multiplier_buff_default
@@ -76,4 +84,5 @@ func on_special_item_timer_timeout():
 
 func toggle_visability_special_items():
 	gravity_debuff.visible = not gravity_debuff.visible 
-	money_buff.visible = not money_buff.visible 
+	money_buff.visible = not money_buff.visible
+	philosophers_shard.visible = not philosophers_shard.visible

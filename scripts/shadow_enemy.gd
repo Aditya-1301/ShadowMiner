@@ -3,8 +3,8 @@ extends CharacterBody2D
 const LEFT = -1
 const RIGHT = 1
 
-var speed = 1
-var healthPoints = 3
+var speed = 0.5
+var healthPoints = 5
 var damagePoints = 1
 var direction = null
 var damaged_state = false
@@ -17,13 +17,13 @@ signal on_damage_taken
 
 func _ready():
 	velocity = Vector2(0.0, 0.0)
-	$AnimatedSprite2D.play("flying")
+	$AnimatedSprite2D.play("Walking")
 	on_damage_taken.connect(do_damage_taken)
 	on_death.connect(do_death)
 	
 	#Turn on HurtBoxLayer for this layer such that this does damage to the Player
 	enemy_hurt_box.set_collision_layer_value(8, true)
-
+	
 func _physics_process(_delta):
 	update_velocity()
 	move_and_collide(velocity)
@@ -51,9 +51,9 @@ func do_death():
 func update_velocity():
 	var x_position_delta = player.position.x - position.x
 	if not damaged_state:
-		$AnimatedSprite2D.play("flying")
+		$AnimatedSprite2D.play("Walking")
 	else:
-		$AnimatedSprite2D.play("damaged")
+		$AnimatedSprite2D.play("Idle")
 		position.x = lerp(position.x-(100*direction), position.x, .5)
 		damaged_state = false
 	if(x_position_delta < 0):

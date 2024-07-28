@@ -59,7 +59,9 @@ jump={
 
 [layer_names]
 
+2d_physics/layer_2="EnemyLayer"
 2d_physics/layer_4="Attraction layer"
+2d_physics/layer_8="HitBox layer"
 
 [physics]
 

@@ -41,6 +41,6 @@ func update_labels():
 	if game_timer.time_left > 0:
 		time_left_label.text = "Time: " + str(floor(game_timer.time_left))
 
-	
+
 func _process(_delta):
 	update_labels()
