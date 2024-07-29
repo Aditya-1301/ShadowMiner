@@ -214,8 +214,9 @@ animations = [{
 "speed": 17.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fh8fe"]
-radius = 46.0109
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yok6r"]
+radius = 13.0
+height = 58.0
 
 [node name="ShadowEnemy" type="CharacterBody2D"]
 collision_layer = 0
@@ -229,14 +230,14 @@ animation = &"Idle"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(32, 11)
-shape = SubResource("CircleShape2D_fh8fe")
+position = Vector2(6, 12)
+shape = SubResource("CapsuleShape2D_yok6r")
 
 [node name="EnemyHurtBox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 128
 script = ExtResource("2_moesw")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="EnemyHurtBox"]
-position = Vector2(32, 11)
-shape = SubResource("CircleShape2D_fh8fe")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHurtBox"]
+position = Vector2(6, 12)
+shape = SubResource("CapsuleShape2D_yok6r")
