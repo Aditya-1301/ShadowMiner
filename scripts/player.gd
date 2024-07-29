@@ -88,14 +88,17 @@ func _physics_process(delta):
 	
 	# Handle staff activation animation
 	if Input.is_action_pressed("staff_on") and attraction_zone.gravity_point and animated_sprite_2d.animation != "activate_staff":
+		velocity = Vector2(0.0,velocity.y)
 		animated_sprite_2d.play("activate_staff")
 		az_sprite_2d.visible = true
 	
 	if Input.is_action_just_released("staff_on"):
+		velocity = Vector2(0.0,velocity.y)
 		az_sprite_2d.visible = false
 	
 	# Handle attack animation
 	if Input.is_action_pressed("attack") and not attraction_zone.gravity_point and animated_sprite_2d.animation != "attack":
+		velocity = Vector2(0.0,velocity.y)
 		animated_sprite_2d.play("attack")
 
 	move_and_slide()
