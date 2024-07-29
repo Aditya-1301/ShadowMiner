@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://c2xrwk754oifb"]
+[gd_scene load_steps=30 format=3 uid="uid://c2xrwk754oifb"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_iy7pp"]
 [ext_resource type="Texture2D" uid="uid://daopkriekpon" path="res://assets/Backgrounds/Parallax/1.png" id="2_4wp1p"]
+[ext_resource type="PackedScene" uid="uid://83jj5xo0ry5u" path="res://scenes/wall.tscn" id="2_7wglg"]
 [ext_resource type="Texture2D" uid="uid://bnc6736yat04q" path="res://assets/Backgrounds/Parallax/2.png" id="3_153rp"]
 [ext_resource type="Texture2D" uid="uid://cqnu0txbq4em2" path="res://assets/Backgrounds/Parallax/3fx.png" id="5_g0t02"]
 [ext_resource type="Texture2D" uid="uid://ch8r0ojumer8o" path="res://assets/Backgrounds/Parallax/4.png" id="6_fkd14"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://btymnxx8k7s1e" path="res://scenes/gravity_debuff.tscn" id="19_x5wrj"]
 [ext_resource type="PackedScene" uid="uid://d4l6aexoupfec" path="res://scenes/PhilosophersShard.tscn" id="20_cyx4b"]
 [ext_resource type="PackedScene" uid="uid://bgrmeik86n4j" path="res://scenes/shadow_enemy.tscn" id="21_ehdqo"]
+[ext_resource type="PackedScene" uid="uid://bx6og61635gm" path="res://scenes/game_over.tscn" id="21_khkl1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10n1h"]
 texture = ExtResource("13_nydyk")
@@ -7484,15 +7486,6 @@ font_names = PackedStringArray("Old English Text MT")
 [sub_resource type="SystemFont" id="SystemFont_qamj7"]
 font_names = PackedStringArray("Old English Text MT")
 
-[sub_resource type="SystemFont" id="SystemFont_v0iwj"]
-font_names = PackedStringArray("Old English Text MT")
-
-[sub_resource type="SystemFont" id="SystemFont_1h7gi"]
-font_names = PackedStringArray("Old English Text MT")
-
-[sub_resource type="SystemFont" id="SystemFont_wddob"]
-font_names = PackedStringArray("Old English Text MT")
-
 [node name="World" type="Node2D"]
 script = ExtResource("1_iy7pp")
 
@@ -7580,8 +7573,9 @@ layer_0/modulate = Color(0.501961, 0.87451, 0.87451, 1)
 layer_0/tile_data = PackedInt32Array(458745, 1310720, 52, 524281, 2752512, 66, 589817, 2752512, 67, 458746, 1376256, 52, 524282, 2818048, 66, 589818, 2818048, 67, 458747, 1441792, 52, 524283, 2883584, 66, 589819, 2883584, 67, 458748, 1507328, 52, 524284, 2949120, 66, 589820, 2949120, 67, 458749, 1572864, 52, 524285, 3014656, 66, 589821, 3014656, 67, 458750, 1638400, 52, 524286, 3080192, 66, 589822, 3080192, 67, 458751, 1703936, 52, 524287, 3145728, 66, 589823, 3145728, 67, 393216, 1769472, 52, 458752, 2818048, 66, 524288, 2818048, 67, 393217, 1835008, 52, 458753, 2883584, 66, 524289, 2883584, 67, 393218, 1900544, 52, 458754, 2949120, 66, 524290, 2949120, 67, 393219, 1310720, 52, 458755, 3014656, 66, 524291, 3014656, 67, 393220, 1376256, 52, 458756, 3080192, 66, 524292, 3080192, 67, 393221, 1441792, 52, 458757, 3145728, 66, 524293, 3145728, 67, 393222, 1507328, 52, 458758, 2883584, 66, 524294, 2883584, 67, 393223, 1310720, 52, 458759, 2949120, 66, 524295, 2949120, 67, 393224, 1376256, 52, 458760, 3014656, 66, 524296, 3014656, 67, 393225, 1441792, 52, 458761, 3080192, 66, 524297, 3080192, 67, 393226, 1507328, 52, 458762, 3145728, 66, 524298, 3145728, 67, 393227, 1572864, 52, 458763, 2883584, 66, 524299, 2883584, 67, 393228, 1638400, 52, 458764, 2949120, 66, 524300, 2949120, 67, 393229, 1703936, 52, 458765, 3014656, 66, 524301, 3014656, 67, 393230, 1769472, 52, 458766, 3080192, 66, 524302, 3080192, 67, 393231, 1835008, 52, 458767, 3145728, 66, 524303, 3145728, 67, 393232, 1900544, 52, 458768, 3211264, 66, 524304, 3211264, 67)
 
 [node name="Player" parent="." instance=ExtResource("14_keark")]
-visibility_layer = 3
-position = Vector2(-287, 407)
+light_mask = 17
+visibility_layer = 19
+position = Vector2(-287, 410)
 scale = Vector2(1.5, 1.5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -7711,61 +7705,22 @@ theme_override_fonts/font = SubResource("SystemFont_qamj7")
 theme_override_font_sizes/font_size = 30
 text = "Time:"
 
-[node name="GameOver" type="CanvasLayer" parent="."]
+[node name="GameOver" parent="." instance=ExtResource("21_khkl1")]
 unique_name_in_owner = true
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="GameOver"]
-offset_right = 1159.0
-offset_bottom = 651.0
-color = Color(0.66, 0, 0, 0.239216)
-
-[node name="MenuItems" type="VBoxContainer" parent="GameOver/ColorRect"]
-layout_mode = 2
-offset_left = 522.5
-offset_top = 282.5
-offset_right = 636.5
-offset_bottom = 454.5
-grow_horizontal = 0
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_constants/separation = 30
-
-[node name="ReplayButton" type="Button" parent="GameOver/ColorRect/MenuItems"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 0
-theme_override_fonts/font = SubResource("SystemFont_v0iwj")
-theme_override_font_sizes/font_size = 36
-text = "Replay
-"
-
-[node name="MainMenuButton" type="Button" parent="GameOver/ColorRect/MenuItems"]
-layout_mode = 2
-theme_override_constants/outline_size = 0
-theme_override_fonts/font = SubResource("SystemFont_1h7gi")
-theme_override_font_sizes/font_size = 36
-text = "Main Menu"
-
-[node name="GameOverLabel" type="Label" parent="GameOver/ColorRect"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -317.5
-offset_right = 317.5
-offset_bottom = 151.0
-grow_horizontal = 2
-theme_override_fonts/font = SubResource("SystemFont_wddob")
-theme_override_font_sizes/font_size = 150
-text = "You Died!"
 
 [node name="GameTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 40.0
+one_shot = true
 
 [node name="ShadowEnemy" parent="." instance=ExtResource("21_ehdqo")]
-position = Vector2(527, 420)
+position = Vector2(940, 410)
 scale = Vector2(2, 2)
 
-[connection signal="pressed" from="GameOver/ColorRect/MenuItems/ReplayButton" to="." method="_on_replay_button_pressed"]
-[connection signal="pressed" from="GameOver/ColorRect/MenuItems/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("2_7wglg")]
+position = Vector2(-447, 458)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("2_7wglg")]
+position = Vector2(1095, 458)
+rotation = 3.14159

@@ -9,6 +9,8 @@ var target = 500
 var target_reached_count = 0
 @onready var game_timer = $GameTimer
 
+@onready var game_over = $GameOver
+@onready var game_over_label = $GameOver/ColorRect/GameOverLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,11 +27,9 @@ func _ready():
 func _on_replay_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 
-
 func _on_main_menu_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
-	
 func update_labels():
 	score_label.text = "Score: " + str(player.money_aquired)
 	if player.money_aquired >= target and game_timer.time_left > 0:
@@ -41,7 +41,16 @@ func update_labels():
 	if game_timer.time_left > 0:
 		time_left_label.text = "Time: " + str(floor(game_timer.time_left))
 
+func show_end_screen():
+	if game_timer.time_left == 0:
+		game_over.visible = true
+		if target_reached_count > 0:
+			game_over_label.text = "Not Enough Gold to Continue!"
+		elif target > player.show_balance():
+			game_over_label.text = "Ran out of Time!"
+		get_tree().paused = true
 
 func _process(_delta):
 	hearts_container.updateHearts(player.currentHealth)
 	update_labels()
+	show_end_screen()
