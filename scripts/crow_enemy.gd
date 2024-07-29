@@ -9,7 +9,6 @@ var damagePoints = 1
 var direction = null
 var damaged_state = false
 @onready var player = $"../Player" as CharacterBody2D
-@onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var enemy_hurt_box = $EnemyHurtBox
 
 signal on_death
@@ -24,13 +23,16 @@ func _ready():
 	#Turn on HurtBoxLayer for this layer such that this does damage to the Player
 	enemy_hurt_box.set_collision_layer_value(8, true)
 
+
 func _physics_process(_delta):
 	update_velocity()
 	move_and_collide(velocity)
 
+
 func _get(property):
 	if property == "damagePoints":
 		return damagePoints
+
 
 func take_damage(value):
 	if (healthPoints - value) <= 0:
@@ -41,12 +43,15 @@ func take_damage(value):
 	else:
 		healthPoints -= value
 		on_damage_taken.emit()
-	
+
+
 func do_damage_taken():
 	damaged_state = true
 
+
 func do_death():
 	queue_free()
+
 
 func update_velocity():
 	var x_position_delta = player.position.x - position.x

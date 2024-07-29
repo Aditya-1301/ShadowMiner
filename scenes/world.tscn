@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_iy7pp"]
 [ext_resource type="Texture2D" uid="uid://daopkriekpon" path="res://assets/Backgrounds/Parallax/1.png" id="2_4wp1p"]
-[ext_resource type="PackedScene" path="res://scenes/wall.tscn" id="2_7wglg"]
+[ext_resource type="PackedScene" uid="uid://83jj5xo0ry5u" path="res://scenes/wall.tscn" id="2_7wglg"]
 [ext_resource type="Texture2D" uid="uid://bnc6736yat04q" path="res://assets/Backgrounds/Parallax/2.png" id="3_153rp"]
 [ext_resource type="Texture2D" uid="uid://cqnu0txbq4em2" path="res://assets/Backgrounds/Parallax/3fx.png" id="5_g0t02"]
 [ext_resource type="Texture2D" uid="uid://ch8r0ojumer8o" path="res://assets/Backgrounds/Parallax/4.png" id="6_fkd14"]
@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://daxmyw7p0v4yk" path="res://scenes/money_buff.tscn" id="18_bjppy"]
 [ext_resource type="PackedScene" uid="uid://btymnxx8k7s1e" path="res://scenes/gravity_debuff.tscn" id="19_x5wrj"]
 [ext_resource type="PackedScene" uid="uid://d4l6aexoupfec" path="res://scenes/PhilosophersShard.tscn" id="20_cyx4b"]
-[ext_resource type="PackedScene" uid="uid://btnq2i2y471ar" path="res://scenes/game_over.tscn" id="21_khkl1"]
+[ext_resource type="PackedScene" uid="uid://bx6og61635gm" path="res://scenes/game_over.tscn" id="21_khkl1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10n1h"]
 texture = ExtResource("13_nydyk")
@@ -7706,10 +7706,10 @@ text = "Time:"
 
 [node name="GameOver" parent="." instance=ExtResource("21_khkl1")]
 unique_name_in_owner = true
-visible = false
 
 [node name="GameTimer" type="Timer" parent="."]
-wait_time = 40.0
+process_mode = 1
+wait_time = 60.0
 one_shot = true
 
 [node name="Walls" type="Node" parent="."]

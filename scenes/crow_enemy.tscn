@@ -86,7 +86,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6i0u7"]
-radius = 19.0158
+radius = 8.0
 
 [node name="CrowEnemy" type="CharacterBody2D"]
 scale = Vector2(2.5, 2.5)

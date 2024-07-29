@@ -9,7 +9,7 @@ var target = 500
 var target_reached_count = 0
 @onready var game_timer = $GameTimer
 
-@onready var game_over = $GameOver as GameOver
+@onready var game_over = $GameOver
 @onready var game_over_label = $GameOver/ColorRect/GameOverLabel
 
 var enemies = [
@@ -49,6 +49,7 @@ func _on_main_menu_button_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
+
 func update_labels():
 	score_label.text = "Score: " + str(player.money_aquired)
 	if player.money_aquired >= target and game_timer.time_left > 0:
@@ -59,6 +60,7 @@ func update_labels():
 	target_to_reach_label.text = "Target: " + str(target)
 	if game_timer.time_left > 0:
 		time_left_label.text = "Time: " + str(floor(game_timer.time_left))
+
 
 func show_end_screen():
 	if game_timer.time_left == 0:
@@ -72,6 +74,7 @@ func show_end_screen():
 		game_over_label.text = "You Died!"
 		game_over.visible = true
 		get_tree().paused = true
+
 
 func on_SpawnTimer_timeout():
 	# Instantiate a random intervall at least 9 sec or less than 20 sec
@@ -93,6 +96,7 @@ func on_SpawnTimer_timeout():
 	else:
 		rand_enemy.position = right_spawn_point.position
 	add_child(rand_enemy)
+
 
 func _process(_delta):
 	hearts_container.updateHearts(player.currentHealth)
