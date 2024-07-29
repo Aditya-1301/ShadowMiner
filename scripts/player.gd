@@ -109,13 +109,6 @@ func _get(property):
 func take_damage(_value):
 	currentHealth -= 1
 	animated_sprite_2d.play("hit")
-	if currentHealth <= 0:
-		# change scene to YOU DIED SCREEN
-		animated_sprite_2d.play("death")
-		currentHealth = maxHealth
-		money_aquired = 0
-		game_over.visible = true
-		game_over_label.text = "You Died!"
 
 
 func set_money_increase(money):
@@ -124,7 +117,7 @@ func set_money_increase(money):
 	
 	
 func show_balance():
-	print("Current amount of Money: ", money_aquired)
+	#print("Current amount of Money: ", money_aquired)
 	return money_aquired
 
 
@@ -134,8 +127,8 @@ func increase_philstone_amount():
 
 
 func show_philstone():
-	print("Current amount of philstone: ", philstone_aquired)
-
+	#print("Current amount of philstone: ", philstone_aquired)
+	return philstone_aquired
 
 func set_gravity_multiplier(gravity_debuff_multiplier):
 	current_gravity_modifier *= gravity_debuff_multiplier

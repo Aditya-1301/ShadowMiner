@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bx6og61635gm"]
+[gd_scene load_steps=6 format=3 uid="uid://btnq2i2y471ar"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_j1c41"]
 [ext_resource type="AudioStream" uid="uid://8hftkw62src7" path="res://sound/Music/747635__newlocknew__ambmisc_early-morningsummernear-the-schoolswiftscrows.wav" id="2_jrqs7"]
@@ -16,8 +16,6 @@ font_names = PackedStringArray("Old English Text MT")
 subpixel_positioning = 0
 
 [node name="GameOver" type="CanvasLayer"]
-process_mode = 2
-visible = false
 script = ExtResource("1_j1c41")
 
 [node name="ColorRect" type="ColorRect" parent="."]

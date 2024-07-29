@@ -9,7 +9,7 @@ var target = 500
 var target_reached_count = 0
 @onready var game_timer = $GameTimer
 
-@onready var game_over = $GameOver
+@onready var game_over = $GameOver as GameOver
 @onready var game_over_label = $GameOver/ColorRect/GameOverLabel
 
 var enemies = [
@@ -34,12 +34,19 @@ func _ready():
 	
 	spawn_timer.timeout.connect(on_SpawnTimer_timeout)
 	spawn_timer.start()
+	
+	game_over.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	game_over.on_Replay_button_pressed.connect(_on_replay_button_pressed)
+	game_over.on_MainMenu_button_pressed.connect(_on_main_menu_button_pressed)
 
 
 func _on_replay_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
 
 func _on_main_menu_button_pressed():
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func update_labels():
@@ -55,11 +62,15 @@ func update_labels():
 
 func show_end_screen():
 	if game_timer.time_left == 0:
-		game_over.visible = true
 		if target_reached_count > 0:
 			game_over_label.text = "Not Enough Gold to Continue!"
 		elif target > player.show_balance():
 			game_over_label.text = "Ran out of Time!"
+		game_over.visible = true
+		get_tree().paused = true
+	elif player.currentHealth == 0:
+		game_over_label.text = "You Died!"
+		game_over.visible = true
 		get_tree().paused = true
 
 func on_SpawnTimer_timeout():
