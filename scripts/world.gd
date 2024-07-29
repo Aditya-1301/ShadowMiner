@@ -12,6 +12,15 @@ var target_reached_count = 0
 @onready var game_over = $GameOver
 @onready var game_over_label = $GameOver/ColorRect/GameOverLabel
 
+var enemies = [
+	preload("res://scenes/crow_enemy.tscn"),
+	preload("res://scenes/shadow_enemy.tscn")
+]
+@onready var left_spawn_point = $LeftSpawnPoint
+@onready var right_spawn_point = $RightSpawnPoint
+@onready var spawn_timer = $SpawnTimer
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Music.volume_db -= 24
@@ -22,6 +31,9 @@ func _ready():
 	target_to_reach_label.text = "Target: " + str(target)
 	time_left_label.text = "Time Left: " + str(floor(game_timer.time_left))
 	game_timer.start()
+	
+	spawn_timer.timeout.connect(on_SpawnTimer_timeout)
+	spawn_timer.start()
 
 
 func _on_replay_button_pressed():
@@ -49,6 +61,27 @@ func show_end_screen():
 		elif target > player.show_balance():
 			game_over_label.text = "Ran out of Time!"
 		get_tree().paused = true
+
+func on_SpawnTimer_timeout():
+	# Instantiate a random intervall at least 9 sec or less than 20 sec
+	spawn_timer.wait_time = randi_range(9,20)
+
+	# Make random enemy toggle
+	var random_index = randi() % enemies.size()
+	print(random_index) 
+	var rand_enemy = enemies[random_index].instantiate() as CharacterBody2D
+	
+	# Get random Spawn location based on wheter the player is closer to the spawner 
+	# and assign the enemy to that location
+	var left_spawn_point_player_delta = abs(player.position.x - left_spawn_point.position.x)
+	var right_spawn_point_player_delta = abs(player.position.x - right_spawn_point.position.x)
+	
+	print("Left Spawn point delta: ", left_spawn_point_player_delta, "Right spawn point delta", right_spawn_point_player_delta)
+	if(left_spawn_point_player_delta < right_spawn_point_player_delta):
+		rand_enemy.position = left_spawn_point.position
+	else:
+		rand_enemy.position = right_spawn_point.position
+	add_child(rand_enemy)
 
 func _process(_delta):
 	hearts_container.updateHearts(player.currentHealth)

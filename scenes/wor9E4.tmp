@@ -7721,7 +7721,6 @@ position = Vector2(1095, 458)
 rotation = 3.14159
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 10.0
 
 [node name="LeftSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(-514, 430)
