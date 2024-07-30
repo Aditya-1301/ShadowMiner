@@ -90,8 +90,8 @@ radius = 8.0
 
 [node name="CrowEnemy" type="CharacterBody2D"]
 scale = Vector2(2.5, 2.5)
-collision_layer = 0
-collision_mask = 0
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ewmbh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -105,8 +105,8 @@ position = Vector2(2.4, -4)
 shape = SubResource("CircleShape2D_6i0u7")
 
 [node name="EnemyHurtBox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 128
+collision_layer = 2
+collision_mask = 130
 script = ExtResource("3_0d0ph")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="EnemyHurtBox"]

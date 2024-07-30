@@ -24,6 +24,7 @@ func _ready():
 	#Turn on HurtBoxLayer for this layer such that this does damage to the Player
 	enemy_hurt_box.set_collision_layer_value(8, true)
 	
+	
 func _physics_process(_delta):
 	update_velocity()
 	move_and_collide(velocity)
