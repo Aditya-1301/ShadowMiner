@@ -1,8 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://c2xrwk754oifb"]
+[gd_scene load_steps=28 format=3 uid="uid://c2xrwk754oifb"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_iy7pp"]
 [ext_resource type="Texture2D" uid="uid://daopkriekpon" path="res://assets/Backgrounds/Parallax/1.png" id="2_4wp1p"]
-[ext_resource type="PackedScene" uid="uid://83jj5xo0ry5u" path="res://scenes/wall.tscn" id="2_7wglg"]
 [ext_resource type="Texture2D" uid="uid://bnc6736yat04q" path="res://assets/Backgrounds/Parallax/2.png" id="3_153rp"]
 [ext_resource type="Texture2D" uid="uid://cqnu0txbq4em2" path="res://assets/Backgrounds/Parallax/3fx.png" id="5_g0t02"]
 [ext_resource type="Texture2D" uid="uid://ch8r0ojumer8o" path="res://assets/Backgrounds/Parallax/4.png" id="6_fkd14"]
@@ -7586,6 +7585,26 @@ collision_mask = 3
 position = Vector2(93, 407)
 shape = SubResource("WorldBoundaryShape2D_1v4ht")
 
+[node name="Wall1" type="StaticBody2D" parent="."]
+position = Vector2(87, 107)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
+position = Vector2(-536, 345)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_1v4ht")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(87, 107)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(1013, 349)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_1v4ht")
+
 [node name="Items" type="Node2D" parent="."]
 script = ExtResource("15_bbdkc")
 
@@ -7711,15 +7730,6 @@ unique_name_in_owner = true
 process_mode = 1
 wait_time = 60.0
 one_shot = true
-
-[node name="Walls" type="Node" parent="."]
-
-[node name="Wall" parent="Walls" instance=ExtResource("2_7wglg")]
-position = Vector2(-447, 458)
-
-[node name="Wall2" parent="Walls" instance=ExtResource("2_7wglg")]
-position = Vector2(1095, 458)
-rotation = 3.14159
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 10.0
