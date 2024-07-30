@@ -376,6 +376,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2qwb"]
 size = Vector2(55, 98)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wu6ph"]
+radius = 30.0
+height = 104.0
+
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_6hg34"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h65ix"]
@@ -582,10 +586,6 @@ _data = {
 "run": SubResource("Animation_h1npq")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wu6ph"]
-radius = 30.0
-height = 104.0
-
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 9
 script = ExtResource("1_68gri")
@@ -609,12 +609,25 @@ offset = Vector2(0, -900)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(28, 2)
 sprite_frames = SubResource("SpriteFrames_24qxx")
-animation = &"activate_staff"
+animation = &"attack"
 autoplay = "idle"
+frame_progress = 0.64539
+
+[node name="Muzzle" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(117, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(21.5, 0)
 shape = SubResource("RectangleShape2D_w2qwb")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("9_gn3sm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(21, 1)
+shape = SubResource("CapsuleShape2D_wu6ph")
 
 [node name="Animations" type="Node" parent="."]
 
@@ -676,12 +689,3 @@ position = Vector2(28, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("2_36067")
 hframes = 8
-
-[node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 128
-collision_mask = 128
-script = ExtResource("9_gn3sm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(21, 1)
-shape = SubResource("CapsuleShape2D_wu6ph")

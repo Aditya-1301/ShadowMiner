@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const bullet_path = preload("res://scenes/Bullet.tscn")
 @export var maxHealth = 3
 var currentHealth = maxHealth
 var damagePoints = 1
@@ -18,9 +19,12 @@ var current_gravity_modifier = default_gravity_modifier
 @onready var az_sprite_2d = $"Attraction Zone/AttractionZoneSprite"
 @onready var game_over_label = $"../GameOver/ColorRect/GameOverLabel"
 @onready var gravity_debuff_timer = $"../gravity_debuff_timer"
+@onready var muzzle : Marker2D = $AnimatedSprite2D/Muzzle
+
 
 signal on_money_aquired_change
 signal on_philstone_aquired_change
+
 
 func _ready():
 	attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_DISABLED
@@ -32,6 +36,7 @@ func _ready():
 	items.on_philShard_increase.connect(increase_philstone_amount)
 	on_philstone_aquired_change.connect(show_philstone)
 
+
 func _input(_event):
 	if Input.is_action_pressed("staff_on"):
 		attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_COMBINE
@@ -41,6 +46,7 @@ func _input(_event):
 			i.gravity_scale = current_gravity_modifier
 		if animated_sprite_2d.flip_h and az_sprite_2d.flip_h == false:
 			az_sprite_2d.flip_h = true
+		attraction_zone.rotation = get_local_mouse_position().angle() + PI / 2
 			#az_sprite_2d.position.x += 42 # Decrementing by 32 places the sprite in a relatively better position to the flipped player sprite
 	elif Input.is_action_just_released("staff_on"):
 		attraction_zone.gravity_space_override = attraction_zone.SPACE_OVERRIDE_DISABLED
@@ -49,11 +55,13 @@ func _input(_event):
 			az_sprite_2d.flip_h = false
 			#az_sprite_2d.position.x -= 42 # Incrementing by 32 moves it to its original position
 		print("Staff Disabled!")
-	elif Input.is_action_just_pressed("aim_set"):
-		attraction_zone.rotation = get_local_mouse_position().angle() + PI / 2
+	#elif Input.is_action_just_pressed("aim_set"):
+		#attraction_zone.rotation = get_local_mouse_position().angle() + PI / 2
 		#az_sprite_2d.rotation = get_local_mouse_position().angle() -PI/2 ; For Rotation = 172.6 degrees
 	elif Input.is_action_just_pressed("aim_cancel"):
 		attraction_zone.rotation = 0
+	elif Input.is_action_pressed("attack"):
+		player_shoot()
 
 
 func _physics_process(delta):
@@ -69,7 +77,7 @@ func _physics_process(delta):
 			animated_sprite_2d.play("jump")
 		
 	# Get the input direction and handle the movement/deceleration.
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("ui_left", "ui_right") 
 	if direction != 0:
 		if not Input.is_action_just_pressed("staff_on") and not Input.is_action_pressed("attack"):
 			velocity.x = direction * SPEED
@@ -120,7 +128,6 @@ func set_money_increase(money):
 	
 	
 func show_balance():
-	#print("Current amount of Money: ", money_aquired)
 	return money_aquired
 
 
@@ -130,8 +137,8 @@ func increase_philstone_amount():
 
 
 func show_philstone():
-	#print("Current amount of philstone: ", philstone_aquired)
 	return philstone_aquired
+
 
 func set_gravity_multiplier(gravity_debuff_multiplier):
 	current_gravity_modifier *= gravity_debuff_multiplier
@@ -141,3 +148,23 @@ func set_gravity_multiplier(gravity_debuff_multiplier):
 
 func reset_gravity_modifer():
 	current_gravity_modifier = default_gravity_modifier
+	
+
+func player_shoot():
+	print("player shoot!!!")
+	var direction = -1
+	if animated_sprite_2d.flip_h == false:
+		direction = +1
+	print(direction)
+	if Input.is_action_pressed("attack"):
+		print("attacking with bullets")
+		var bullet = bullet_path.instantiate() as Node2D
+		bullet.direction = direction
+		if animated_sprite_2d.flip_h:
+			muzzle.position.x = -abs(muzzle.position.x)
+			muzzle.rotation = -PI
+		else:
+			muzzle.position.x = abs(muzzle.position.x)
+			muzzle.rotation = 0
+		bullet.position = muzzle.global_position
+		get_parent().add_child(bullet)
