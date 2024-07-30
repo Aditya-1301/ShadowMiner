@@ -7725,6 +7725,7 @@ text = "Time:"
 
 [node name="GameOver" parent="." instance=ExtResource("21_khkl1")]
 unique_name_in_owner = true
+visible = false
 
 [node name="GameTimer" type="Timer" parent="."]
 process_mode = 1

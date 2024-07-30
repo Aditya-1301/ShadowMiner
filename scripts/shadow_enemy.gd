@@ -21,6 +21,7 @@ func _ready():
 	on_damage_taken.connect(do_damage_taken)
 	on_death.connect(do_death)
 	
+	
 	#Turn on HurtBoxLayer for this layer such that this does damage to the Player
 	enemy_hurt_box.set_collision_layer_value(8, true)
 	

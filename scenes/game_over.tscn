@@ -12,7 +12,7 @@ font_names = PackedStringArray("Old English Text MT")
 subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_wddob"]
-font_names = PackedStringArray("Old English Text MT")
+font_names = PackedStringArray("Calibri")
 subpixel_positioning = 0
 
 [node name="GameOver" type="CanvasLayer"]
@@ -25,12 +25,18 @@ offset_bottom = 651.0
 color = Color(0.66, 0, 0, 0.239216)
 
 [node name="MenuItems" type="VBoxContainer" parent="ColorRect"]
-layout_mode = 2
-offset_left = 522.5
-offset_top = 282.5
-offset_right = 636.5
-offset_bottom = 454.5
-grow_horizontal = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -73.0
+offset_right = 102.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_constants/separation = 30
@@ -61,7 +67,10 @@ offset_right = 317.5
 offset_bottom = 151.0
 grow_horizontal = 2
 theme_override_fonts/font = SubResource("SystemFont_wddob")
-theme_override_font_sizes/font_size = 150
+theme_override_font_sizes/font_size = 70
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="GameOverMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_jrqs7")

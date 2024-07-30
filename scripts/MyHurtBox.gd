@@ -17,7 +17,7 @@ func on_area_entered(area: Area2D):
 			owner.take_damage(area.owner._get("damagePoints"))
 		return
 	else:
-		if area.name == "Projectile":
+		if area.name.begins_with("Bullet"):
 			if owner.has_method("take_damage"):
 				print(owner.name, " took damage")
 				owner.take_damage(area.owner._get("damagePoints"))
