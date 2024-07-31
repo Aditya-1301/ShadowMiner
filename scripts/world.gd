@@ -64,7 +64,6 @@ func update_labels():
 
 
 func show_end_screen():
-	print(game_over_rect.color)
 	if game_timer.time_left == 0:
 		if target_reached_count > 0:
 			game_over_label.text = "Not Enough Gold to Continue!"

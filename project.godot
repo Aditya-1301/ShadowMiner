@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_width"
 
 [dotnet]
 
@@ -61,8 +61,3 @@ jump={
 [physics]
 
 2d/default_gravity_vector=Vector2(0, 0)
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"

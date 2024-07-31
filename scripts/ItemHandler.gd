@@ -43,7 +43,7 @@ func _ready():
 			
 		if item.name.begins_with("PhilosophersShard"):
 			item.connect("on_collected", on_PhilShard_collected)
-			
+		
 
 func _process(_delta):
 	if current_multiplier_buff != multiplier_buff_default:
