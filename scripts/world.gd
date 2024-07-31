@@ -8,9 +8,10 @@ extends Node2D
 var target = 500
 var target_reached_count = 0
 @onready var game_timer = $GameTimer
-
+@onready var game_over_rect = $GameOver/ColorRect
 @onready var game_over = $GameOver
-@onready var game_over_label = $GameOver/ColorRect/GameOverLabel
+@onready var game_over_label = %GameOver/ColorRect/GameOverLabel
+@onready var instruction = $CanvasLayer2/Instruction
 
 var enemies = [
 	preload("res://scenes/crow_enemy.tscn"),
@@ -63,6 +64,7 @@ func update_labels():
 
 
 func show_end_screen():
+	print(game_over_rect.color)
 	if game_timer.time_left == 0:
 		if target_reached_count > 0:
 			game_over_label.text = "Not Enough Gold to Continue!"
@@ -74,6 +76,14 @@ func show_end_screen():
 		game_over_label.text = "You Died!"
 		game_over.visible = true
 		get_tree().paused = true
+	elif target_reached_count == 10: 
+		game_over_label.text = "You Won!"
+		#game_over_rect.color = "0066603d"
+		get_tree().paused = true
+	elif target_reached_count > 5 and player.show_philstone() > 10:
+		game_over_label.text = "You found the Philosopher's Stone! You Won!"
+		get_tree().paused = true
+		#game_over_rect.color = "7201c83d"
 
 
 func on_SpawnTimer_timeout():
@@ -95,6 +105,7 @@ func on_SpawnTimer_timeout():
 		rand_enemy.position = left_spawn_point.position
 	else:
 		rand_enemy.position = right_spawn_point.position
+	rand_enemy.scale = Vector2(randf_range(1.4, 2), randf_range(1.4, 2))
 	add_child(rand_enemy)
 
 
@@ -102,3 +113,7 @@ func _process(_delta):
 	hearts_container.updateHearts(player.currentHealth)
 	update_labels()
 	show_end_screen()
+
+
+func _on_instruction_remove_timer_timeout():
+	instruction.visible = false

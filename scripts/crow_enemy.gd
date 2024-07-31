@@ -3,7 +3,7 @@ extends CharacterBody2D
 const LEFT = -1
 const RIGHT = 1
 
-var speed = 1
+var speed = 1.5
 var healthPoints = 3
 var damagePoints = 1
 var direction = null
@@ -15,6 +15,7 @@ signal on_death
 signal on_damage_taken
 
 func _ready():
+	self.name = "CrowEnemy" + self.name
 	velocity = Vector2(0.0, 0.0)
 	$AnimatedSprite2D.play("flying")
 	on_damage_taken.connect(do_damage_taken)

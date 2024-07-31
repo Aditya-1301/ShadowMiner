@@ -55,8 +55,8 @@ radius = 4.0
 
 [node name="Bullet" type="CharacterBody2D"]
 scale = Vector2(2, 2)
-collision_layer = 128
-collision_mask = 128
+collision_layer = 64
+collision_mask = 64
 script = ExtResource("1_r6d37")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

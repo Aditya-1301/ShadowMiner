@@ -689,3 +689,9 @@ position = Vector2(28, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("2_36067")
 hframes = 8
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

@@ -12,6 +12,7 @@ func _physics_process(delta):
 	move_local_x(direction * delta * speed)
 	animated_sprite_2d.play("fire")
 	animated_sprite_2d.self_modulate = "976eff"
+	self.scale = Vector2(3, 3)
 
 func _on_timer_timeout():
 	print("removed bullet")
@@ -19,6 +20,7 @@ func _on_timer_timeout():
 	
 
 func _on_hitbox_body_entered(body):
+	print("bullet just hit ", body.name)
 	print("hitbox body entered")
 	if body.name.begins_with("ShadowEnemy") or body.name.begins_with("CrowEnemy"):
 		if body.healthPoints > 0:

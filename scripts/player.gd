@@ -11,6 +11,7 @@ var philstone_aquired = 0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var default_gravity_modifier = 1
 var current_gravity_modifier = default_gravity_modifier
+var can_shoot = true
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var attraction_zone = $"Attraction Zone"
@@ -20,6 +21,7 @@ var current_gravity_modifier = default_gravity_modifier
 @onready var game_over_label = $"../GameOver/ColorRect/GameOverLabel"
 @onready var gravity_debuff_timer = $"../gravity_debuff_timer"
 @onready var muzzle : Marker2D = $AnimatedSprite2D/Muzzle
+@onready var cooldown_timer = $CooldownTimer
 
 
 signal on_money_aquired_change
@@ -156,7 +158,7 @@ func player_shoot():
 	if animated_sprite_2d.flip_h == false:
 		direction = +1
 	print(direction)
-	if Input.is_action_pressed("attack"):
+	if Input.is_action_pressed("attack") and can_shoot:
 		print("attacking with bullets")
 		var bullet = bullet_path.instantiate() as Node2D
 		bullet.direction = direction
@@ -168,3 +170,9 @@ func player_shoot():
 			muzzle.rotation = 0
 		bullet.position = muzzle.global_position
 		get_parent().add_child(bullet)
+		can_shoot = false
+		cooldown_timer.start()
+
+
+func _on_cooldown_timer_timeout():
+	can_shoot = true
