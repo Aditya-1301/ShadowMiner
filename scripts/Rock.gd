@@ -58,4 +58,3 @@ func on_reappear_timeout() -> void:
 	pickable_area.set_collision_layer_value(1, true)
 	
 	show()
-

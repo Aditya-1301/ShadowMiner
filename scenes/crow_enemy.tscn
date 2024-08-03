@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/crow_enemy.gd" id="1_ewmbh"]
 [ext_resource type="Texture2D" uid="uid://c3dxfsfynxobl" path="res://assets/Enemies/Crow/Crow.png" id="2_s7jr3"]
-[ext_resource type="Script" path="res://scripts/MyHurtBox.gd" id="3_0d0ph"]
+[ext_resource type="Script" path="res://scripts/hurt_box.gd" id="3_0d0ph"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vl64m"]
 atlas = ExtResource("2_s7jr3")

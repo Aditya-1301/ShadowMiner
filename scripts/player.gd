@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-const bullet_path = preload("res://scenes/Bullet.tscn")
+const bullet_path = preload("res://scenes/bullet.tscn")
 @export var maxHealth = 3
 var currentHealth = maxHealth
 var damagePoints = 1
@@ -79,7 +79,7 @@ func _physics_process(delta):
 			animated_sprite_2d.play("jump")
 		
 	# Get the input direction and handle the movement/deceleration.
-	var direction = Input.get_axis("ui_left", "ui_right") 
+	var direction = Input.get_axis("left", "right") 
 	if direction != 0:
 		if not Input.is_action_just_pressed("staff_on") and not Input.is_action_pressed("attack"):
 			velocity.x = direction * SPEED

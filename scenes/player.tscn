@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dnvypjw18p168" path="res://assets/Player/Death.png" id="4_qeain"]
 [ext_resource type="Texture2D" uid="uid://dhbhwdac1m21e" path="res://assets/Player/Run.png" id="5_vtvnt"]
 [ext_resource type="Texture2D" uid="uid://sh2rc2ucas2u" path="res://assets/Player/Hit.png" id="6_jr5ql"]
-[ext_resource type="Script" path="res://scripts/MyHurtBox.gd" id="9_gn3sm"]
+[ext_resource type="Script" path="res://scripts/hurt_box.gd" id="9_gn3sm"]
 [ext_resource type="Texture2D" uid="uid://dlhmub7jii7n6" path="res://assets/Player/StaffBeam2.png" id="11_a6sgc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ui3qh"]
