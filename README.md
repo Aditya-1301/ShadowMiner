@@ -1,4 +1,4 @@
-# Shadow Miner
+# [Shadow Miner](https://photon-phantom.itch.io/shadow-miner)
 
 This is supposed to be a simple single player survival game inspired by the classic Miniclip gold miner game. This game was made with Godot 4.22. This game was originally made by us as an entry in the Pirate Software Game Jam 15 (Summer 2024). The Theme of the game jam was Shadows and Alchemists. 
 
