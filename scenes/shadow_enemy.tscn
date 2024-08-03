@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c1eadiahv2pm" path="res://assets/Enemies/ShadowEnemy/walk.png" id="1_qi0ma"]
 [ext_resource type="Script" path="res://scripts/shadow_enemy.gd" id="1_sjoap"]
 [ext_resource type="Texture2D" uid="uid://d05w2url48aov" path="res://assets/Enemies/ShadowEnemy/idle.png" id="2_kh0yi"]
-[ext_resource type="Script" path="res://scripts/MyHurtBox.gd" id="2_moesw"]
+[ext_resource type="Script" path="res://scripts/hurt_box.gd" id="2_moesw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jjo3t"]
 atlas = ExtResource("2_kh0yi")

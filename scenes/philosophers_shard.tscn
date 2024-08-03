@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4l6aexoupfec"]
 
-[ext_resource type="Script" path="res://scripts/PhilosophersShard.gd" id="1_q52ei"]
+[ext_resource type="Script" path="res://scripts/philosophers_shard.gd" id="1_q52ei"]
 [ext_resource type="Texture2D" uid="uid://1lbg6vfwk2qj" path="res://assets/Items/Philosophers Shard/RPGIcons.png" id="2_f5i24"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gybn4"]

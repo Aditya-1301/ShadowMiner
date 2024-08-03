@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_4pj2y"]
 [ext_resource type="AudioStream" uid="uid://8hftkw62src7" path="res://sound/Music/747635__newlocknew__ambmisc_early-morningsummernear-the-schoolswiftscrows.wav" id="2_4w8bm"]
+[ext_resource type="Texture2D" uid="uid://j5sgsum7gkp8" path="res://assets/UI/ShadowsAndAlchemistsTitleScreen.png" id="2_vhjdd"]
 [ext_resource type="PackedScene" uid="uid://dm616m3tpat32" path="res://scenes/Options/options_menu.tscn" id="3_dk4uf"]
-
-[sub_resource type="SystemFont" id="SystemFont_0iwfw"]
-font_names = PackedStringArray("Old English Text MT")
 
 [sub_resource type="SystemFont" id="SystemFont_jupgq"]
 font_names = PackedStringArray("Old English Text MT")
@@ -37,7 +35,7 @@ script = ExtResource("1_4pj2y")
 
 [node name="BackgroundImage" type="TextureRect" parent="."]
 layout_mode = 2
-expand_mode = 1
+texture = ExtResource("2_vhjdd")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -48,18 +46,10 @@ theme_override_constants/margin_right = 80
 layout_mode = 2
 alignment = 1
 
-[node name="title" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-auto_translate = false
-theme_override_fonts/font = SubResource("SystemFont_0iwfw")
-theme_override_font_sizes/font_size = 40
-text = "Shadow Miner"
-horizontal_alignment = 1
-
 [node name="MenuItems" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
+size_flags_horizontal = 8
+size_flags_vertical = 10
 theme_override_constants/separation = 30
 
 [node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/MenuItems"]
