@@ -4,6 +4,7 @@ extends MarginContainer
 @onready var options_menu = $Options_Menu as OptionsMenu
 @onready var margin_container = $MarginContainer
 
+
 func _ready():
 	options_menu.exit_options_menu.connect(on_exit_options_button_pressed)
 	

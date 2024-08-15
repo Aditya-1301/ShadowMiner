@@ -7477,12 +7477,15 @@ sources/0 = SubResource("TileSetAtlasSource_10n1h")
 
 [sub_resource type="SystemFont" id="SystemFont_psudl"]
 font_names = PackedStringArray("Old English Text MT")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_76mh4"]
 font_names = PackedStringArray("Old English Text MT")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_qamj7"]
 font_names = PackedStringArray("Old English Text MT")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_rvytg"]
 font_names = PackedStringArray("Old English Text MT")

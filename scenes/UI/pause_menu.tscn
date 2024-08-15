@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dmrsd22ls3uky" path="res://themes/pause_menu.tres" id="1_0dmjl"]
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_mqmqm"]
-[ext_resource type="Theme" uid="uid://d7surddpq8ws" path="res://themes/pause_menu_button.tres" id="4_dlop7"]
+[ext_resource type="Theme" uid="uid://d7surddpq8ws" path="res://themes/menu_button.tres" id="4_dlop7"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2

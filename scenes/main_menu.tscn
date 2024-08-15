@@ -7,15 +7,19 @@
 
 [sub_resource type="SystemFont" id="SystemFont_jupgq"]
 font_names = PackedStringArray("Old English Text MT")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_7lx40"]
 font_names = PackedStringArray("Old English Text MT")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_0ih1o"]
 font_names = PackedStringArray("Old English Text MT")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_pcp30"]
 font_names = PackedStringArray("Old English Text MT")
+subpixel_positioning = 0
 
 [node name="Menu" type="MarginContainer"]
 anchors_preset = 15
