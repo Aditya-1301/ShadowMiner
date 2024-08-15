@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dmrsd22ls3uky"]
+
+[ext_resource type="Texture2D" uid="uid://cxdrlb38cim0f" path="res://assets/UI/RectangleBox_96x96.png" id="1_i6v5u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_81jay"]
+texture = ExtResource("1_i6v5u")
+
+[sub_resource type="SystemFont" id="SystemFont_nhfmb"]
+font_names = PackedStringArray("Old English Text MT")
+
+[resource]
+default_font = SubResource("SystemFont_nhfmb")
+Panel/styles/panel = SubResource("StyleBoxTexture_81jay")
