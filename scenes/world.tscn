@@ -7489,6 +7489,7 @@ subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_rvytg"]
 font_names = PackedStringArray("Old English Text MT")
+subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_1y1s6"]
 default_font = SubResource("SystemFont_rvytg")
