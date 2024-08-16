@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://4gi0uwy803dq"]
+[gd_scene load_steps=10 format=3 uid="uid://4gi0uwy803dq"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_4pj2y"]
 [ext_resource type="AudioStream" uid="uid://8hftkw62src7" path="res://sound/Music/747635__newlocknew__ambmisc_early-morningsummernear-the-schoolswiftscrows.wav" id="2_4w8bm"]
 [ext_resource type="Texture2D" uid="uid://j5sgsum7gkp8" path="res://assets/UI/ShadowsAndAlchemistsTitleScreen.png" id="2_vhjdd"]
+[ext_resource type="Theme" uid="uid://d7surddpq8ws" path="res://themes/menu_button.tres" id="3_bd63g"]
 [ext_resource type="PackedScene" uid="uid://dm616m3tpat32" path="res://scenes/Options/options_menu.tscn" id="3_dk4uf"]
 
 [sub_resource type="SystemFont" id="SystemFont_jupgq"]
@@ -54,6 +55,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
+theme = ExtResource("3_bd63g")
 theme_override_constants/separation = 30
 
 [node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/MenuItems"]
